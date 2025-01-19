@@ -1,0 +1,124 @@
+.message_wrap {
+  width: 100%;
+  padding-inline: 40% 5%;
+  margin: 0 auto 3rem;
+  display: flex;
+  flex-flow: column wrap;
+  p {
+    font-size: 0.9rem;
+    width: 100%;
+  }
+  .error {
+    color: #db4343;
+    margin-bottom: 0.2rem;
+    font-size: 0.8rem;
+  }
+}
+
+.form_wrap {
+  width: 100%;
+  display: flex;
+  flex-flow: column wrap;
+  gap: 1rem;
+  margin: 0 auto 3rem;
+  padding-inline: 40% 5%;
+  align-content: center;
+  align-items: center;
+  form {
+  display: block;
+  margin: 0;
+  }
+  p {
+    font-size: 0.9rem;
+    width: 100%;
+  }
+  dl {
+    width: 100%;
+    margin: auto;
+    dt {
+      width: 100%;
+      margin-bottom: 0.2rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+    dd {
+      width: 100%;
+      border-bottom: 1px solid var(--outline);
+      padding-bottom: 0.2rem;
+    }
+  }
+  &.confirmation {
+    dl {
+      dd {
+        border-bottom: 1px dotted var(--outline);
+      }
+    }
+  }
+}
+.button_wrap {
+  width: 100%;
+  padding-inline: 35% 5%;
+  margin: 0 auto;
+  display: flex;
+  flex-flow: row wrap;
+  gap: 1rem;
+}
+
+.input_text {
+  display: block;
+  width: 100%;
+  height: 36px;
+  background: #ededed;
+  border: none;
+  line-height: 26px;
+  &:focus {
+    outline: none;
+    background: var(--background);
+  }
+}
+.textarea {
+  min-height: 200px;
+}
+
+.button {
+  border: none;
+  cursor: pointer;
+  outline: none;
+  appearance: none;
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  display: block;
+  background: var(--background);
+  margin: auto;
+  padding: 0.8rem 3rem;
+  text-align: center;
+  text-decoration: none;
+  transition: ease 0.2s;
+  border: 1px solid var(--outline);
+  font-size: 1rem;
+}
+.button span {
+  position: relative;
+  z-index: 3;
+  color: #333;
+}
+.button:hover span {
+  color: #fff;
+}
+.button:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  background: #333;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.3s cubic-bezier(0.8, 0, 0.2, 1) 0s;
+  transform: scale(1, 0);
+  transform-origin: center;
+}
+.button:hover:before {
+  transform: scale(1, 1);
+}

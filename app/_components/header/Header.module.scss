@@ -1,0 +1,32 @@
+  .nav_area {
+    width: 360px;
+  height: calc(100vh - 50px);
+    position: fixed;
+    inset: 0 auto auto 3rem;
+    margin: auto;
+    background: rgba(var(--background),.8);
+    backdrop-filter: blur(10px);
+    border-right: var(--outline) solid 1px;
+    border-left: var(--outline) solid 1px;
+    z-index: 10;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-end;
+  }
+.nav {
+  display: flex;
+  flex-flow: column nowrap;
+  a {
+    font-size: 3rem;
+    font-weight: 500;
+    display: block;
+    border-top: var(--outline) solid 1px;
+    padding: 0 1rem;
+    transition: all 0.2s ease-in-out;
+    &:hover {
+      // color: var(--background);
+      // background: var(--primary);
+      font-weight: 400;
+    }
+  }
+}

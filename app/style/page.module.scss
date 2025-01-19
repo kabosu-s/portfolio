@@ -1,0 +1,85 @@
+.mv_wrapper {
+  width: 100%;
+  height: calc(100vh - 50px);
+  padding: 2rem 0 0;
+  position: relative;
+  z-index: 9;
+  .title {
+    font-size: 15rem;
+    line-height: 0.7;
+    letter-spacing: -0.15rem;
+    z-index: 10;
+    position: relative;
+    margin-left: -360px;
+    span {
+      color: var(--primary);
+    }
+  }
+}
+.contents_wrapper {
+  width: 100%;
+  min-height: 700px;
+  background: rgba(var(--background), 0.5);
+  backdrop-filter: blur(3px);
+  border-top: var(--outline) solid 1px;
+  z-index: 9;
+  position: relative;
+  padding: 0 0 5rem;
+  display: flex;
+  flex-flow: column wrap;
+  .title {
+    font-size: 15rem;
+    line-height: 0.7;
+    width: 100%;
+    letter-spacing: -0.15rem;
+    z-index: 10;
+    position: relative;
+    color: #bbb;
+    pointer-events: none;
+    margin: 0 auto 4rem;
+    span {
+      color: var(--primary);
+    }
+  }
+  &:nth-of-type(even) {
+    .title {
+        text-align: right;
+      span {
+        color: #8841c3;
+      }
+    }
+  }
+}
+// Works
+.card_wrap {
+  width: 100%;
+  margin: auto;
+}
+// About
+.about_warp {
+width: 100%;
+padding-inline: 40% 5%;
+display: flex;
+flex-flow: column wrap;
+gap: 2rem;
+.about_column {
+display: flex;
+flex-flow: column wrap;
+gap: 1rem;
+h3 {
+font-size: .9rem;
+}
+hgroup {
+h3 {
+font-size: 2rem;
+}
+h3 + span {
+font-size: .9rem;
+}
+}
+
+}
+p {
+font-size: .9rem;
+}
+}
