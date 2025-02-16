@@ -2,8 +2,10 @@ import { useEffect } from 'react';
 import { detect } from 'detect-browser';
 import { Vector2 } from '@/app/_types/types';
 
-export const useCursorEffect = () => {
+export const useCursorEffect = (isVisible: boolean) => {
   useEffect(() => {
+    if (!isVisible) return;
+
     const browser = detect();
     const isTouchDevices = browser?.os === 'Android OS' || browser?.os === 'iOS';
 
@@ -269,7 +271,6 @@ export const useCursorEffect = () => {
         return Math.ceil(Math.sqrt(width * width + height * height));
       }
     }
-
     class Cursor extends Cursors {
       maxSqueeze: number | undefined;
       constructor() {
@@ -309,5 +310,5 @@ export const useCursorEffect = () => {
     return () => {
       window.removeEventListener('resize', cursor.init);
     };
-  }, []);
+  }, [isVisible]);
 };

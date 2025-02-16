@@ -4,3 +4,45 @@
   pointer-events: none;
   z-index: 1;
 }
+
+.cursor_label {
+  position: absolute;
+  inset: 20px 60px auto auto;
+  z-index: 20;
+  display: block;
+  width: 56px;
+  height: 28px;
+  border: 1px solid var(--outline);
+  border-radius: 9999px;
+  background-color: var(--background);
+  cursor: pointer;
+}
+
+.cursor_label:has(:focus-visible) {
+  outline: auto;
+  outline: auto -webkit-focus-ring-color;
+}
+
+.cursor_label:has(:checked) {
+  background-color: var(--primary);
+}
+
+.cursor_checkbox {
+  appearance: none;
+  position: absolute;
+  top: 50%;
+  left: 2px;
+  width: 24px;
+  height: 24px;
+  border: 1px solid var(--outline);
+  border-radius: 9999px;
+  transform: translateY(-50%);
+  outline: none;
+  background-color: var(--background);
+  transition: left 0.2s;
+  cursor: pointer;
+}
+
+.cursor_checkbox:checked {
+  left: calc(100% - 26px);
+}

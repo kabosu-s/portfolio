@@ -1,52 +1,63 @@
 .message_wrap {
   width: 100%;
-  padding-inline: 40% 5%;
-  margin: 0 auto 3rem;
+  max-width: 720px;
+  margin: 0 0 2rem auto;
+  padding-inline: 5%;
   display: flex;
   flex-flow: column wrap;
   p {
-    font-size: 0.9rem;
+    font-size: 1rem;
     width: 100%;
   }
   .error {
-    color: #db4343;
-    margin-bottom: 0.2rem;
-    font-size: 0.8rem;
+    color: #ffffff;
+    background: #f98888;
+    padding: .2rem 1rem;
+    border-radius: 2rem;
+    margin-bottom: .6rem;
+    font-size: 1rem;
   }
 }
 
 .form_wrap {
   width: 100%;
+  max-width: 720px;
   display: flex;
   flex-flow: column wrap;
   gap: 1rem;
-  margin: 0 auto 3rem;
-  padding-inline: 40% 5%;
+  margin: 0 0 3rem auto;
+  padding-inline: 5%;
   align-content: center;
   align-items: center;
+
   form {
-  display: block;
-  margin: 0;
+    display: block;
+    margin: 0;
   }
+
   p {
-    font-size: 0.9rem;
+    font-size: 1rem;
     width: 100%;
   }
+
   dl {
     width: 100%;
     margin: auto;
+
     dt {
       width: 100%;
       margin-bottom: 0.2rem;
-      font-size: 0.8rem;
+      font-size: 0.9rem;
       font-weight: 600;
     }
+
     dd {
       width: 100%;
       border-bottom: 1px solid var(--outline);
       padding-bottom: 0.2rem;
     }
   }
+
   &.confirmation {
     dl {
       dd {
@@ -55,10 +66,12 @@
     }
   }
 }
+
 .button_wrap {
   width: 100%;
-  padding-inline: 35% 5%;
-  margin: 0 auto;
+  max-width: 720px;
+  margin: 0 0 3rem auto;
+  padding-inline: 5%;
   display: flex;
   flex-flow: row wrap;
   gap: 1rem;
@@ -71,11 +84,13 @@
   background: #ededed;
   border: none;
   line-height: 26px;
+
   &:focus {
     outline: none;
     background: var(--background);
   }
 }
+
 .textarea {
   min-height: 200px;
 }
@@ -91,21 +106,24 @@
   display: block;
   background: var(--background);
   margin: auto;
-  padding: 0.8rem 3rem;
+  padding: 0.9rem 3rem;
   text-align: center;
   text-decoration: none;
   transition: ease 0.2s;
   border: 1px solid var(--outline);
   font-size: 1rem;
 }
+
 .button span {
   position: relative;
   z-index: 3;
   color: #333;
 }
+
 .button:hover span {
   color: #fff;
 }
+
 .button:before {
   content: '';
   position: absolute;
@@ -119,6 +137,7 @@
   transform: scale(1, 0);
   transform-origin: center;
 }
+
 .button:hover:before {
   transform: scale(1, 1);
 }
