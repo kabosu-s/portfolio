@@ -64,7 +64,7 @@ const works = await getData('news');
         <h2 className={`${afacad.className} ${styles.title}`}>
           C<span>O</span>NTACT
         </h2>
-        <ContactForm />
+
       </section>
     </>
   );
