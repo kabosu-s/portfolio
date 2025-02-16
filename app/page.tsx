@@ -31,7 +31,7 @@ const works = await getData('news');
           W<span>O</span>RKS
         </h2>
         <div className={`${styles.card_wrap}`}>
-            {works.list.length ? <EmblaCarousel works={works} /> : ''}
+    
         </div>
       </section>
       <section id="about" className={styles.contents_wrapper}>
@@ -64,7 +64,7 @@ const works = await getData('news');
         <h2 className={`${afacad.className} ${styles.title}`}>
           C<span>O</span>NTACT
         </h2>
-
+        <ContactForm />
       </section>
     </>
   );
