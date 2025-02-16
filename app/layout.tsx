@@ -1,15 +1,9 @@
 import type { Metadata } from 'next';
 import { Noto_Sans_JP, Afacad } from 'next/font/google';
+import '@/app/style/sanitize.css';
 import '@/app/style/globals.scss';
 import CustomCursor from '@/app/_components/cursor/CustomCursor';
 import { Header } from '@/app/_components/header/Header';
-import styles from '@/app/page.module.scss';
-
-const afacad = Afacad({
-  weight: ['400', '500', '700'],
-  subsets: ['latin'],
-  display: 'swap',
-});
 
 const notosans = Noto_Sans_JP({
   weight: ['400', '700'],

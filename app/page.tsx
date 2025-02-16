@@ -41,14 +41,14 @@ const works = await getData('news');
         <div className={styles.about_warp}>
         <div className={styles.about_column}>
         <hgroup>
-          <h3>Name Sae</h3>
-          <span>ふりがな</span>
+          <h3>Naoto Sasaki</h3>
+          <span>なおと ささき</span>
           </hgroup>
           <p>Webデザイナーおよびフロントエンドエンジニア。デザインと技術の両面から、直感的で使いやすいWebサイトやアプリケーションの提供を心がけています。最近では、アクセシビリティに配慮したコーディングにも力を入れています。</p>
         </div>
         <div className={styles.about_column}>
           <h3>略歴</h3>
-          <p>2007年アミューズメント企業（ネットカフェ・パーラー・飲食店経営）に入社<br/>デザイン事業部にて、店舗内装、広告物や販促物制作を担当<br/>2015年にWebデザイナーに転身（現職）デザインからコーディング、フロントエンド側の開発などを担当</p>
+          <p>2007年アミューズメント企業のデザイン事業部にて、店舗内装、広告物や販促物制作を担当。2015年にWebデザイナーに転身（現職）デザインからコーディング、フロントエンド側の開発などを担当</p>
         </div>
         <div className={styles.about_column}>
           <h3>Skill</h3>

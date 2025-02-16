@@ -19,7 +19,6 @@ const afacad = Afacad({
 
 const options: EmblaOptionsType = { align: 'start', loop: true };
 
-
 const EmblaCarousel = ({ works }: { works: Works }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel(options, [Autoplay()]);
   const onNavButtonClick = useCallback((emblaApi: EmblaCarouselType) => {
@@ -44,13 +43,15 @@ const EmblaCarousel = ({ works }: { works: Works }) => {
                     <h3>{work.link.title}</h3>
                     <div>
                       <p className={`${styles.row}`}>
-                        <span>Date</span>{work.update_ymdhi}
+                        <span>Date</span>
+                        {new Intl.DateTimeFormat('ja-JP', { year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date(work.update_ymdhi))}
                       </p>
                       <p className={`${styles.row}`}>
                         <span>Category</span> {work.contents_type_nm}
                       </p>
                       <p className={`${styles.row}`}>
-                        <span>Tools</span>{work.contents_type_slug}
+                        <span>Tools</span>
+                        {work.contents_type_slug}
                       </p>
                     </div>
                   </Link>

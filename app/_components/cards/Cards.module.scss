@@ -5,31 +5,37 @@
   --slide-height: 260px;
   --slide-size: auto;
 }
+
 .embla__viewport {
   overflow: hidden;
 }
+
 .embla__container {
   display: flex;
   touch-action: pan-y pinch-zoom;
 }
+
 .embla__slide {
   transform: translate3d(0, 0, 0);
   flex: 0 0 var(--slide-size);
   min-width: 320px;
   padding: 0 5px 0 15px;
 }
+
 .embla__controls {
   display: flex;
   width: 100%;
   margin: 1rem auto;
   justify-content: flex-end;
 }
+
 .embla__buttons {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 0.1rem;
   align-items: center;
 }
+
 .embla__button {
   appearance: none;
   background-color: transparent;
@@ -48,14 +54,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
   &:disabled {
     color: var(--detail-high-contrast);
   }
 }
+
 .embla__button__svg {
   width: 35%;
   height: 35%;
 }
+
 .card {
   background: linear-gradient(-45deg, transparent 19px, rgba(var(--background), 0.5) 19px);
   background-position: bottom left;
@@ -66,6 +75,7 @@
   height: var(--slide-height);
   opacity: 1;
   transition: all 0.2s ease-in-out;
+
   a {
     width: 100%;
     height: 100%;
@@ -75,64 +85,72 @@
     gap: 0.2rem;
     padding: 5%;
   }
-.embla__slide__number {
-  font-size: 2rem;
-  font-weight: 600;
-  user-select: none;
-  width: 100%;
-  border-bottom: 1px solid var(--outline);
-  margin-bottom: 1rem;
-  position: relative;
-  &::before {
-    position: absolute;
-    content: "";
-    width: 0.5rem;
-    height: 0.5rem;
-    background: var(--primary);
-    border-bottom: .2rem solid var(--background);
-    border-left: .2rem solid var(--background);
-    inset: 0 0 auto auto;
-    z-index: 10;
+
+  .embla__slide__number {
+    font-size: 2rem;
+    font-weight: 600;
+    user-select: none;
+    width: 100%;
+    border-bottom: 1px solid var(--outline);
+    margin-bottom: 1rem;
+    position: relative;
+
+    &::before {
+      position: absolute;
+      content: "";
+      width: 0.5rem;
+      height: 0.5rem;
+      background: var(--primary);
+      border-bottom: 0.1rem solid var(--background);
+      border-left: 0.1rem solid var(--background);
+      inset: 0 0 auto auto;
+      z-index: 10;
+    }
+
+    &::after {
+      position: absolute;
+      content: "";
+      width: 0.9rem;
+      height: 0.9rem;
+      border-top: 0.5rem solid var(--secondary);
+      border-right: 0.5rem solid var(--secondary);
+      inset: 0 0 auto auto;
+      z-index: 9;
+    }
   }
-  &::after {
-    position: absolute;
-    content: "";
-    width: .7rem;
-    height: .7rem;
-    border-top: .5rem solid var(--secondary);
-    border-right: .5rem solid var(--secondary);
-    inset: 0 0 auto auto;
-    z-index: 9;
-  }
-}
+
   h3 {
     margin-bottom: 1rem;
+    height: auto;
+    flex-grow: 2;
   }
+
   .row {
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     margin-top: .25rem;
+
     span {
       font-weight: bold;
+
       &::after {
         content: '：';
       }
     }
   }
+
   &::after {
-    clip-path: polygon(
-      0 100%,
-      0 0,
-      100% 0,
-      100% calc(100% - 25px),
-      calc(100% - 25px) 100%,
-      1px 100%,
-      1px calc(100% - 1px),
-      calc(100% - 25px) calc(100% - 1px),
-      calc(100% - 1px) calc(100% - 25px),
-      calc(100% - 1px) 1px,
-      1px 1px,
-      1px 100%
-    );
+    clip-path: polygon(0 100%,
+        0 0,
+        100% 0,
+        100% calc(100% - 25px),
+        calc(100% - 25px) 100%,
+        1px 100%,
+        1px calc(100% - 1px),
+        calc(100% - 25px) calc(100% - 1px),
+        calc(100% - 1px) calc(100% - 25px),
+        calc(100% - 1px) 1px,
+        1px 1px,
+        1px 100%);
     content: '';
     display: block;
     height: 100%;
@@ -142,6 +160,7 @@
     background-color: var(--outline);
     z-index: 10;
   }
+
   &:hover {
     background: linear-gradient(-45deg, transparent 19px, var(--background) 19px);
   }
