@@ -163,16 +163,4 @@ body:has([class$='articlewrap']) .nav_area.active {
       display: flex;
     }
   }
-  header:has([class$='active']) + main {
-    width: calc(100% - 2%);
-    position: fixed;
-    overflow: hidden;
-    inset: 0;
-    margin: auto;
-    z-index: 1;
-    opacity: 0.3;
-    h1 {
-    margin-left: 0 !important;
-    }
-  }
 }

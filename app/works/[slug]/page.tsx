@@ -8,8 +8,8 @@ const afacad = Afacad({
   display: 'swap',
 });
 
-type Proos = {
-  params: { slug: string };
+type Props = {
+  params: Promise<{ slug: string }>;
 };
 
 //kurocoのAPI読み込み
@@ -28,15 +28,15 @@ async function getData(slug: string) {
   return res.json();
 }
 
-export default async function Page({ params }: { params: { slug: string } }) {
+export default async function Page({ params }: Props): Promise<React.JSX.Element> {
   const { slug } = await params;
   const data = await getData(slug);
-
   return (
     <div className={`${styles.articlewrap}`}>
       <figure className={`${styles.mainvisual}`}>
         <Image src={`${data.details.mv.url}`} width={980} height={500} alt="" decoding="async" loading="lazy" />
       </figure>
+
       <h1 className={`${styles.title}`}>{data.details.subject}</h1>
       <div className={`${styles.main}`} dangerouslySetInnerHTML={{ __html: data.details.text }} />
     </div>
