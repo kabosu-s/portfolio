@@ -118,12 +118,12 @@
   }
 }
 // 第二階層
-body:has([class$='articlewrap']) .nav_area {
+body:has([class*='articlewrap']) .nav_area {
   .hamburger {
     display: block;
   }
 }
-body:has([class$='articlewrap']) .nav_area {
+body:has([class*='articlewrap']) .nav_area {
   width: 60px;
   left: 1%;
   overflow: hidden;
@@ -134,7 +134,7 @@ body:has([class$='articlewrap']) .nav_area {
     }
   }
 }
-body:has([class$='articlewrap']) .nav_area.active {
+body:has([class*='articlewrap']) .nav_area.active {
   width: 360px;
   .nav {
     display: flex;
