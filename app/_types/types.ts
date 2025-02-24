@@ -81,6 +81,7 @@ export interface FormResponse {
 
 export interface WorksItem {
   subject: string; // 例: Case番号
+  topics_id: number;
   link: {
     title: string; // リンクのタイトル
   };

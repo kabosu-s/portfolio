@@ -10,14 +10,15 @@ const afacad = Afacad({
   display: 'swap',
 });
 
+//kurocoのAPI読み込み
 async function getData(contents: string) {
   const res = await fetch(process.env.NEXT_PUBLIC_API_ENDPOINT + '/3/' + contents);
   return res.json()
 }
 
 export default async function Home() {
-
-const works = await getData('news');
+//kurocoAPIのパス
+const works = await getData('blogs');
   return (
     <>
       <section className={styles.mv_wrapper}>

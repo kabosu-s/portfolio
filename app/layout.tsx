@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Noto_Sans_JP, Afacad } from 'next/font/google';
+import { Noto_Sans_JP } from 'next/font/google';
 import '@/app/style/sanitize.css';
 import '@/app/style/globals.scss';
 import CustomCursor from '@/app/_components/cursor/CustomCursor';

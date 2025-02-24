@@ -38,9 +38,9 @@ const EmblaCarousel = ({ works }: { works: Works }) => {
             {works.list.map((work) => (
               <div className={`${styles.embla__slide}`} key={work.subject}>
                 <article className={`${styles.card}`}>
-                  <Link href="#">
-                    <div className={`${afacad.className} ${styles.embla__slide__number}`}>Case {work.subject}</div>
-                    <h3>{work.link.title}</h3>
+                  <Link href={`/works/${work.topics_id}`} >
+                    <div className={`${afacad.className} ${styles.embla__slide__number}`}>Case {work.topics_id}</div>
+                    <h3>{work.subject}</h3>
                     <div>
                       <p className={`${styles.row}`}>
                         <span>Date</span>
@@ -48,10 +48,6 @@ const EmblaCarousel = ({ works }: { works: Works }) => {
                       </p>
                       <p className={`${styles.row}`}>
                         <span>Category</span> {work.contents_type_nm}
-                      </p>
-                      <p className={`${styles.row}`}>
-                        <span>Tools</span>
-                        {work.contents_type_slug}
                       </p>
                     </div>
                   </Link>

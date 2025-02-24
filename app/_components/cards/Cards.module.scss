@@ -2,7 +2,7 @@
   overflow: hidden;
   margin: auto;
   --detail-high-contrast: rgb(192, 192, 192);
-  --slide-height: 260px;
+  --slide-height: 100%;
   --slide-size: auto;
 }
 
@@ -74,7 +74,7 @@
   width: 300px;
   height: var(--slide-height);
   opacity: 1;
-  transition: all 0.2s ease-in-out;
+  transition: all 0.4s ease-in-out;
 
   a {
     width: 100%;

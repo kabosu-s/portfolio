@@ -1,0 +1,31 @@
+.articlewrap {
+  width: 100%;
+  padding: 4rem 0 0;
+  position: relative;
+  margin: auto;
+  z-index: 9;
+  transition: all 0.4s ease-in-out;
+  background: #f1f1f1;
+  .mainvisual {
+  width: 100%;
+  padding: 0;
+  margin: auto;
+  border-top: 1px solid var(--outline);
+  border-bottom: 1px solid var(--outline);
+  img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+  }
+  .title {
+    font-size: 2rem;
+    line-height: 1.4;
+    transition: all 0.4s ease-in-out;
+    padding: 0 1rem;
+  }
+  .main {
+  padding: 1rem;
+  }
+}
+

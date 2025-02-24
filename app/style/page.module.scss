@@ -4,7 +4,7 @@
   padding: 2rem 0 0;
   position: relative;
   z-index: 9;
-
+  transition: all 0.4s ease-in-out;
   .title {
     font-size: 15rem;
     line-height: 0.7;
@@ -13,11 +13,21 @@
     position: relative;
     margin-top: 1rem;
     margin-left: -360px;
-
+    transition: all 0.4s ease-in-out;
     span {
       color: var(--primary);
     }
   }
+}
+@media (width < 768px) {
+.mv_wrapper {
+  height: 500px;
+  .title {
+    font-size: 10rem;
+    margin-top: 1rem;
+    margin-left: -60px;
+  }
+}
 }
 
 .contents_wrapper {
@@ -31,7 +41,7 @@
   padding: 0 0 5rem;
   display: flex;
   flex-flow: column wrap;
-
+  overflow-x: hidden;
   .title {
     font-size: 15rem;
     line-height: 0.7;
@@ -43,7 +53,6 @@
     color: #bbb;
     pointer-events: none;
     margin: 0 auto 4rem;
-
     span {
       color: var(--primary);
     }
@@ -59,7 +68,13 @@
     }
   }
 }
-
+@media (width < 768px) {
+.contents_wrapper {
+  .title {
+    font-size: 8rem;
+  }
+}
+}
 // Works
 .card_wrap {
   width: 100%;

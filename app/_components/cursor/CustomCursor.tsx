@@ -13,14 +13,10 @@ const CustomCursor = () => {
 
   return (
     <>
-      <label className={styles.cursor_label}>
-        <input
-          type="checkbox"
-          className={styles.cursor_checkbox}
-          checked={isVisible}
-          onChange={handleToggle}
-        />
+      <label htmlFor="cursor-toggle" className={styles.cursor_label} aria-label="背景エフェクトスイッチ">
+        <button role="switch" id="cursor-toggle" className={styles.cursor_button}  aria-checked={isVisible} onClick={handleToggle} tabIndex={0} />
       </label>
+
       {isVisible && <div className={styles.cursor_container} id="cursor" />}
     </>
   );
