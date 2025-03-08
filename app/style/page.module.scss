@@ -7,6 +7,7 @@
   transition: all 0.4s ease-in-out;
   .title {
     font-size: 15rem;
+    font-weight: bold;
     line-height: 0.7;
     letter-spacing: -0.15rem;
     z-index: 10;
@@ -44,6 +45,7 @@
   overflow-x: hidden;
   .title {
     font-size: 15rem;
+    font-weight: bold;
     line-height: 0.7;
     width: 100%;
     letter-spacing: -0.15rem;
@@ -81,40 +83,3 @@
   margin: auto;
 }
 
-// About
-.about_warp {
-  width: 100%;
-  max-width: 720px;
-  margin: 0 0 3rem auto;
-  padding-inline: 5%;
-  display: flex;
-  flex-flow: column wrap;
-  gap: 2rem;
-
-  .about_column {
-    display: flex;
-    flex-flow: column wrap;
-    gap: 0.5rem;
-    hgroup {
-      //名前
-      margin-bottom: 1rem;
-
-      h3 {
-        font-size: 2rem;
-        margin-bottom: 0;
-      }
-
-      h3+span {
-        font-size: 0.9rem;
-      }
-    }
-  }
-
-  h3 {
-    font-size: 1rem;
-  }
-
-  p {
-    font-size: 1rem;
-  }
-}

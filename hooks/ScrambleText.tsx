@@ -1,6 +1,6 @@
 'use client';
 import React, { useRef, useEffect } from 'react';
-import { ScrambleTextProps } from '@/app/_types/types';
+import { ScrambleTextProps } from '@/types/types';
 
 class TextScramble {
   el: HTMLElement;

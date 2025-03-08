@@ -1,6 +1,6 @@
 'use client';
-import { useCursorEffect } from '@/app/_hooks/useCursorEffect';
-import styles from '@/app/_components/cursor/Customcursor.module.scss';
+import { useCursorEffect } from '@/hooks/useCursorEffect';
+import styles from '@/components/cursor/Customcursor.module.scss';
 import { useState } from 'react';
 
 const CustomCursor = () => {

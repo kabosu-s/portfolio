@@ -1,14 +1,14 @@
 'use client';
 import React, { useCallback } from 'react';
 import { EmblaOptionsType, EmblaCarouselType } from 'embla-carousel';
-import { PrevButton, NextButton, usePrevNextButtons } from '@/app/_components/cards/EmblaCarouselArrowButtons';
+import { PrevButton, NextButton, usePrevNextButtons } from '@/components/cards/EmblaCarouselArrowButtons';
 import Autoplay from 'embla-carousel-autoplay';
 import useEmblaCarousel from 'embla-carousel-react';
 
-import { WorksItem, Works } from '@/app/_types/types';
+import { WorksItem, Works } from '@/types/types';
 
 import Link from 'next/link';
-import styles from '@/app/_components/cards/Cards.module.scss';
+import styles from '@/components/cards/Cards.module.scss';
 
 import { Afacad } from 'next/font/google';
 const afacad = Afacad({

@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { detect } from 'detect-browser';
-import { Vector2 } from '@/app/_types/types';
+import { Vector2 } from '@/types/types';
 
 export const useCursorEffect = (isVisible: boolean) => {
   useEffect(() => {

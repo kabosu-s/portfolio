@@ -1,9 +1,8 @@
 import type { Metadata } from 'next';
 import { Noto_Sans_JP } from 'next/font/google';
-import '@/app/style/sanitize.css';
-import '@/app/style/globals.scss';
-import CustomCursor from '@/app/_components/cursor/CustomCursor';
-import { Header } from '@/app/_components/header/Header';
+import '@/app/style/globals.css';
+import CustomCursor from '@/components/cursor/CustomCursor';
+import { Header } from '@/components/header/Header';
 
 const notosans = Noto_Sans_JP({
   weight: ['400', '700'],

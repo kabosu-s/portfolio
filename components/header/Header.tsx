@@ -1,8 +1,8 @@
 'use client';
 import React, { useState } from 'react';
-import ScrambleText from '@/app/_hooks/ScrambleText';
+import ScrambleText from '@/hooks/ScrambleText';
 import Link from 'next/link';
-import styles from '@/app/_components/header/Header.module.scss';
+import styles from '@/components/header/Header.module.scss';
 import { Afacad } from 'next/font/google';
 
 const afacad = Afacad({
