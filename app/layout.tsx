@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Noto_Sans_JP } from 'next/font/google';
 import '@/app/style/globals.css';
+import { GoogleTagManager } from '@next/third-parties/google';
 import CustomCursor from '@/components/cursor/CustomCursor';
 import { Header } from '@/components/header/Header';
 
@@ -23,10 +24,9 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body className={notosans.className}>
+        <GoogleTagManager gtmId="GTM-WMH56QF2" />
         <Header />
-        <main>
-          {children}
-        </main>
+        <main>{children}</main>
         <footer>
           <small>@Since 2024.</small>
         </footer>
