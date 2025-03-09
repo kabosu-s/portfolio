@@ -5,7 +5,7 @@ import { PrevButton, NextButton, usePrevNextButtons } from '@/components/cards/E
 import Autoplay from 'embla-carousel-autoplay';
 import useEmblaCarousel from 'embla-carousel-react';
 
-import { WorksItem, Works } from '@/types/types';
+import { Works } from '@/types/types';
 
 import Link from 'next/link';
 import styles from '@/components/cards/Cards.module.scss';

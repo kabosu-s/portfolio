@@ -1,13 +1,17 @@
 export interface Vector2 {
-      x: number;
-      y: number;
+  x: number;
+  y: number;
 }
+export interface TransitionParticles {
+  duration: number;
+  delay: number;
+  easing: string;
+}
+
 export interface ScrambleTextProps {
   text: string; // 表示するテキスト
   hoverText: string; // ホバー時にスクランブルするテキスト
 }
-
-
 interface Grade {
   name: number;
   email: number;
@@ -69,7 +73,6 @@ export interface SubmitData {
   body?: string;
 }
 
-
 export interface FormResponse {
   details: {
     inquiry_name: string;
@@ -77,7 +80,6 @@ export interface FormResponse {
     thanks_text: string;
   };
 }
-
 
 export interface WorksItem {
   subject: string; // 例: Case番号

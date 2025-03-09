@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { Noto_Sans_JP } from 'next/font/google';
-import '@/app/style/globals.css';
+import './style/globals.css';
 import { GoogleTagManager } from '@next/third-parties/google';
 import CustomCursor from '@/components/cursor/CustomCursor';
 import { Header } from '@/components/header/Header';

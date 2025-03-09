@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { detect } from 'detect-browser';
-import { Vector2 } from '@/types/types';
+import { Vector2, TransitionParticles } from '@/types/types';
 
 export const useCursorEffect = (isVisible: boolean) => {
   useEffect(() => {
@@ -15,7 +15,7 @@ export const useCursorEffect = (isVisible: boolean) => {
       pos: Vector2;
       diff: Vector2;
       tinyCursor: boolean;
-      transitionParticles: { duration: number; delay: number; easing: string } | boolean;
+      transitionParticles: TransitionParticles | boolean;
       cursorVisible: boolean;
       widthContainer: number;
       heightContainer: number;
@@ -30,7 +30,7 @@ export const useCursorEffect = (isVisible: boolean) => {
       cursor: any;
       svg: SVGSVGElement | null | undefined;
       nodeCursors: NodeListOf<Element> | undefined;
-      points: { node: SVGCircleElement; x: number; y: number; }[] | undefined;
+      points: { node: SVGCircleElement; x: number; y: number }[] | undefined;
       nbrParticles: any;
       fillCursorBack: string | undefined;
       fillOpacityCursorBack: number | undefined;
@@ -53,17 +53,18 @@ export const useCursorEffect = (isVisible: boolean) => {
       strokeColorParticles: any | undefined;
       strokeWidthParticles: number | undefined;
       strokeOpacityParticles: number | undefined;
-      posTrail: { x: number; y: number; } | undefined;
-      nextParticle: { node: SVGCircleElement; x: number; y: number; } | undefined;
+      posTrail: { x: number; y: number } | undefined;
+      nextParticle: { node: SVGCircleElement; x: number; y: number } | undefined;
       delta: number | undefined;
       directionRadius: string | undefined;
       radiusStart: number | undefined;
       radiusDiff: number | undefined;
       radius: number | undefined;
       maxSqueeze: number | undefined;
+      running: boolean = true;
 
       constructor() {
-        this.container = document.querySelector(`#cursor`);
+        this.container = document.getElementById(`cursor`);
         this.mouse = { x: 0, y: 0 };
         this.pos = { x: 0, y: 0 };
         this.diff = { x: 0, y: 0 };
@@ -87,19 +88,16 @@ export const useCursorEffect = (isVisible: boolean) => {
           { passive: true }
         );
       }
-
       updateCoordinates(e: MouseEvent | TouchEvent) {
         this.mouse.x = e.type.match('touch') ? (e as TouchEvent).touches[0].clientX : (e as MouseEvent).clientX;
         this.mouse.y = e.type.match('touch') ? (e as TouchEvent).touches[0].clientY : (e as MouseEvent).clientY;
       }
-
       setParamsDiffs() {
         this.diff.x = this.mouse.x - this.pos.x;
         this.diff.y = this.mouse.y - this.pos.y;
         this.pos.x += this.diff.x * this.speed;
         this.pos.y += this.diff.y * this.speed;
       }
-
       init() {
         this.tinyCursor ? this.setParamsCursor() : null;
         this.setParamsParticles();
@@ -111,14 +109,23 @@ export const useCursorEffect = (isVisible: boolean) => {
       setParamsCursor() {
         throw new Error('Method not implemented.');
       }
-
       loop() {
+        if (!this.running) return;
         this.setParamsDiffs();
         if (this.tinyCursor) {
           this.setTinyCursor();
         }
         this.setParticles();
         requestAnimationFrame(() => this.loop());
+      }
+      stop() {
+        this.running = false; // ループ停止
+      }
+      start() {
+        if (!this.running) {
+          this.running = true;
+          this.loop(); // ループ再開
+        }
       }
 
       drawCursor() {
@@ -138,12 +145,11 @@ export const useCursorEffect = (isVisible: boolean) => {
           this.svg = this.container.querySelector('svg');
           this.tinyCursor ? (this.nodeCursors = this.container.querySelectorAll('.tiny-cursor circle')) : null;
           this.particles = Array.from(this.container.querySelectorAll('.particles circle'));
-          this.points = Array(this.nbrParticles)
-            .map((el, i) => ({
-              node: this.particles[i],
-              x: this.pos.x,
-              y: this.pos.y,
-            }));
+          this.points = Array(this.nbrParticles).map((el, i) => ({
+            node: this.particles[i],
+            x: this.pos.x,
+            y: this.pos.y,
+          }));
         }
       }
       drawMaskCursor() {
@@ -152,7 +158,6 @@ export const useCursorEffect = (isVisible: boolean) => {
       drawGradient() {
         throw new Error('Method not implemented.');
       }
-
       drawTinyCursor() {
         return `${
           this.tinyCursor
@@ -182,7 +187,6 @@ export const useCursorEffect = (isVisible: boolean) => {
             : ''
         }`;
       }
-
       setTinyCursor() {
         this.rotate = `rotate(${(Math.atan2(this.diff.y, this.diff.x) * 180) / Math.PI}deg)`;
         this.squeeze = Math.min(Math.sqrt(Math.pow(this.diff.x, 2) + Math.pow(this.diff.y, 2)) / (this.accelerator ?? 1), this.maxSqueeze ?? 0);
@@ -198,7 +202,6 @@ export const useCursorEffect = (isVisible: boolean) => {
       calculateMaxSqueeze(arg0: number, maxSqueeze: number): number {
         throw new Error('Method not implemented.');
       }
-
       drawParticles() {
         return `<g class="particles" filter=${this.filterParticles || 'none'}>
       ${
@@ -230,7 +233,6 @@ export const useCursorEffect = (isVisible: boolean) => {
         .join('')}
     </g>`;
       }
-
       setParticles() {
         if (this.transitionParticles) {
           for (const [i, particle] of this.particles.entries()) {
@@ -258,13 +260,11 @@ export const useCursorEffect = (isVisible: boolean) => {
           }
         }
       }
-
       setRadiusParticles(i: number) {
         const directionMultiplier = this.directionRadius === '>' ? -1 : 1;
         this.radius = Math.max(0, (this.radiusStart ?? 0) + i * (this.radiusDiff ?? 0) * directionMultiplier);
         return this.radius;
       }
-
       diagonalWindow() {
         const width = window.innerWidth;
         const height = window.innerHeight;
@@ -275,18 +275,16 @@ export const useCursorEffect = (isVisible: boolean) => {
       maxSqueeze: number | undefined;
       constructor() {
         super();
-        this.speed = !isTouchDevices ? 0.5 : 1;
+        this.running = isVisible; // 初期状態を設定
         this.init();
         this.loop();
       }
-
       setParamsCursor() {
         this.radiusCursor = 5;
         this.fillCursor = getComputedStyle(document.body).getPropertyValue('--primary');
         this.maxSqueeze = 0.6;
         this.accelerator = 1000;
       }
-
       setParamsParticles() {
         this.strokeGradient = {
           idStrokeGradient: 'gradient',
@@ -305,9 +303,9 @@ export const useCursorEffect = (isVisible: boolean) => {
         };
       }
     }
-
     const cursor = new Cursor();
     return () => {
+      cursor.stop(); // ループ停止
       window.removeEventListener('resize', cursor.init);
     };
   }, [isVisible]);
