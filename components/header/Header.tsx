@@ -13,8 +13,9 @@ const afacad = Afacad({
 
 const menuItems = [
   { text: 'TOP', hoverText: 'Welcome', src: '/' },
+  { text: 'BLOG', hoverText: 'Memo', src: '/#blog' },
   { text: 'WORKS', hoverText: 'Works', src: '/#works' },
-  { text: 'ABOUT', hoverText: 'About', src: '/#about' },
+  { text: 'ABOUT', hoverText: 'MySkill', src: '/#about' },
   { text: 'CONTACT', hoverText: 'Contact', src: '/#contact' },
 ];
 
