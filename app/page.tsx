@@ -1,5 +1,3 @@
-
-
 import ContactForm from '@/components/form/ContactForm';
 import EmblaCarousel from '@/components/cards/Cards';
 import { Articles } from '@/types/types';
@@ -25,7 +23,19 @@ async function fetchData(endpoint: string): Promise<Articles> {
     return data;
   } catch (error) {
     console.error('fetchが失敗しました', error);
-    return { list: [] };
+    return {
+      list: [],
+      pageInfo: {
+        totalCnt: 0,
+        perPage: 10,
+        totalPageCnt: 0,
+        pageNo: 1,
+        firstIndex: 0,
+        lastIndex: 0,
+        startPageNo: 1,
+        endPageNo: 1
+      }
+    };
   }
 }
 
@@ -47,7 +57,10 @@ export default async function Home() {
         <h2 className={`${afacad.className} ${styles.title}`}>BL<span>O</span>G</h2>
         <div className={styles.card_wrap}>
           {blogs.list.length > 0 ? (
-            <EmblaCarousel items={{ list: blogs.list.slice(0, 5) }} type="blog" />
+            <EmblaCarousel items={{
+              list: blogs.list.slice(0, 5),
+              pageInfo: blogs.pageInfo
+            }} type="blog" />
           ) : (
             <p className={styles.empty_message}>ブログ記事はまだありません。</p>
           )}
@@ -59,7 +72,10 @@ export default async function Home() {
         </h2>
         <div className={`${styles.card_wrap}`}>
         {works.list.length > 0 ? (
-          <EmblaCarousel items={{ list: works.list.slice(0, 5) }} type="works" />
+          <EmblaCarousel items={{
+            list: works.list.slice(0, 5),
+            pageInfo: works.pageInfo
+          }} type="works" />
         ) : ( 
           <p className={styles.empty_message}>制作実績はまだありません。</p>
         )}</div>

@@ -7,7 +7,6 @@ import { Button } from '@/components/ui/button';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { getForm, submitForm } from '@/app/api/sendMessage/route';
 import { toast } from 'sonner';
 import { CheckCircle } from 'lucide-react';
 
@@ -52,9 +51,20 @@ export default function ContactForm() {
 
   useEffect(() => {
     const fetchFormDetails = async () => {
-      const formId = 3;
-      const response = await getForm(formId);
-      setFormDetails(response.details);
+      try {
+        const formId = 3;
+        const response = await fetch(`/api/sendMessage?formId=${formId}`);
+        if (!response.ok) {
+          throw new Error('フォーム情報の取得に失敗しました');
+        }
+        const data = await response.json();
+        setFormDetails(data.details);
+      } catch (error) {
+        console.error('フォーム情報の取得エラー:', error);
+        toast('エラー', {
+          description: 'フォーム情報の取得に失敗しました。ページを再読み込みしてください。',
+        });
+      }
     };
 
     fetchFormDetails();
@@ -64,16 +74,24 @@ export default function ContactForm() {
     if (isConfirming) {
       setIsSubmitting(true);
       try {
-        await submitForm(values);
+        const response = await fetch('/api/sendMessage', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(values),
+        });
+
+        if (!response.ok) {
+          const errorData = await response.json();
+          throw new Error(errorData.error || '送信に失敗しました');
+        }
+
         setIsSubmitted(true);
       } catch (error) {
         console.error('送信エラー:', error);
         toast('送信エラー', {
-          description: '送信に失敗しました。もう一度お試しください。',
-          action: {
-            label: 'Undo',
-            onClick: () => console.log('Undo'),
-          },
+          description: error instanceof Error ? error.message : '送信に失敗しました。もう一度お試しください。',
         });
       } finally {
         setIsSubmitting(false);

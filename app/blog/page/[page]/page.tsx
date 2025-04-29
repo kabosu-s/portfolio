@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import Link from 'next/link';
 import { Afacad } from 'next/font/google';
 import styles from '@/app/style/page.module.scss';
@@ -11,6 +12,11 @@ import { Articles } from '@/types/types';
 
 import Pagination from '@/components/pagination/Pagination';
 
+interface PageProps {
+  params: Promise<{
+    page: string;
+  }>;
+}
 
 //kurocoのAPI読み込み
 export async function generateStaticParams() {
@@ -22,9 +28,9 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function BlogListPage(props: { params: { page: string } }) {
-  const params = await Promise.resolve(props.params);
-  const currentPage = Number(params.page);
+export default async function BlogListPage({ params }: PageProps) {
+  const resolvedParams = await params;
+  const currentPage = Number(resolvedParams.page);
 
   if (isNaN(currentPage) || currentPage < 1) notFound();
 

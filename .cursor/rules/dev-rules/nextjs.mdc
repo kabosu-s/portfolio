@@ -15,7 +15,7 @@ root/
 ├── app/                    # ルーティングとページコンポーネント
 │   ├── about/
 │   ├── blog/
-│   ├── style/             # スタイリング
+│   └── style/             # スタイリング
 │   └── api/               # APIルート
 │
 ├── components/            # Reactコンポーネント
