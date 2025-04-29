@@ -81,17 +81,40 @@ export interface FormResponse {
   };
 }
 
-export interface WorksItem {
-  subject: string; // 例: Case番号
+// 記事1件分のデータ
+export interface ArticlesItem {
   topics_id: number;
-  link: {
-    title: string; // リンクのタイトル
+  ymd: string;
+  subject: string;
+  update_ymdhi: string;
+  contents_type_nm: string;
+  mv?: {
+    url: string;
+    desc: string;
+    url_org: string;
   };
-  update_ymdhi: string; // 更新日時
-  contents_type_nm: string; // カテゴリ名
-  contents_type_slug: string; // 使用ツール
+  slug?: string;
 }
+// ページ情報
+export type PageInfo = {
+  totalCnt: number;       // 総記事数
+  perPage: number;        // 1ページあたりの件数
+  totalPageCnt: number;   // 総ページ数
+  pageNo: number;         // 現在のページ番号
+  firstIndex: number;     // このページの開始インデックス
+  lastIndex: number;      // このページの終了インデックス
+  startPageNo: number;    // ページャー表示開始番号
+  endPageNo: number;      // ページャー表示終了番号
+};
 
-export interface Works {
-  list: WorksItem[]; // WorksItemの配列
+// 全体のレスポンス
+export interface Articles {
+  list: ArticlesItem[]; // ArticlesItemの配列
+  pageInfo: PageInfo;
+}
+type EmblaType = 'blog' | 'works';
+
+export interface EmblaCarouselProps {
+  items: Articles;
+  type: EmblaType; // 追加！
 }

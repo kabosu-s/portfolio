@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { getForm, submitForm } from '@/api/sendMessage/route';
+import { getForm, submitForm } from '@/app/api/sendMessage/route';
 import { toast } from 'sonner';
 import { CheckCircle } from 'lucide-react';
 

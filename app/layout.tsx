@@ -13,7 +13,7 @@ const notosans = Noto_Sans_JP({
 
 export const metadata: Metadata = {
   title: 'PORT FOLIO',
-  description: 'my portfolio',
+  description: 'ポートフォリオ兼メモ帳',
 };
 
 export default function RootLayout({

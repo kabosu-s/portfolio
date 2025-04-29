@@ -5,7 +5,7 @@ import { PrevButton, NextButton, usePrevNextButtons } from '@/components/cards/E
 import Autoplay from 'embla-carousel-autoplay';
 import useEmblaCarousel from 'embla-carousel-react';
 
-import { Works } from '@/types/types';
+import { EmblaCarouselProps } from '@/types/types';
 
 import Link from 'next/link';
 import styles from '@/components/cards/Cards.module.scss';
@@ -19,7 +19,7 @@ const afacad = Afacad({
 
 const options: EmblaOptionsType = { align: 'start', loop: true };
 
-const EmblaCarousel = ({ works }: { works: Works }) => {
+const EmblaCarousel: React.FC<EmblaCarouselProps> = ({ items, type }) => {
   const [emblaRef, emblaApi] = useEmblaCarousel(options, [Autoplay()]);
   const onNavButtonClick = useCallback((emblaApi: EmblaCarouselType) => {
     const autoplay = emblaApi?.plugins()?.autoplay;
@@ -35,19 +35,20 @@ const EmblaCarousel = ({ works }: { works: Works }) => {
       <div className={`${styles.embla}`}>
         <div className={`${styles.embla__viewport}`} ref={emblaRef}>
           <div className={`${styles.embla__container}`}>
-            {works.list.map((work) => (
-              <div className={`${styles.embla__slide}`} key={work.subject}>
+            {items.list.map((item) => (
+              <div className={`${styles.embla__slide}`} key={item.topics_id}>
                 <article className={`${styles.card}`}>
-                  <Link href={`/works/${work.topics_id}`} >
-                    <div className={`${afacad.className} ${styles.embla__slide__number}`}>Case {work.topics_id}</div>
-                    <h3>{work.subject}</h3>
+                {/* typeを見て、飛び先を変更 */}
+                <Link href={type === 'blog' ? `/blog/${item.topics_id}` : `/work/${item.topics_id}`}> 
+                    <div className={`${afacad.className} ${styles.embla__slide__number}`}>Case {item.topics_id}</div>
+                    <h3>{item.subject}</h3>
                     <div>
                       <p className={`${styles.row}`}>
                         <span>Date</span>
-                        {new Intl.DateTimeFormat('ja-JP', { year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date(work.update_ymdhi))}
+                        {new Intl.DateTimeFormat('ja-JP', { year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date(item.update_ymdhi))}
                       </p>
                       <p className={`${styles.row}`}>
-                        <span>Category</span> {work.contents_type_nm}
+                        <span>Category</span> {item.contents_type_nm}
                       </p>
                     </div>
                   </Link>
