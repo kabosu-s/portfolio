@@ -1,0 +1,22 @@
+export const metadata = {
+  title: "JSによるメールアドレスの難読化とアクセシビリティの両立",
+  date: "2026-03-21",
+  description: "スパムクローラーを回避しつつ、スクリーンリーダー等の支援技術を損なわないMailtoの実装案。"
+}
+
+## 課題：mailtoリンクの脆弱性
+`mailto:example@gmail.com` をそのまま HTML に記述すると、クローラーによって瞬時に収集され、スパムメールの標的になります。
+
+## 解決策：コンポーネントによる動的結合
+メールアドレスを `user` と `domain` に分解し、ユーザーのクリックアクション時のみ結合して `window.location.href` を発火させます。
+
+```tsx
+// 実装のポイント
+const handleClick = (e: React.MouseEvent) => {
+  e.preventDefault();
+  window.location.href = `mailto:${user}@${domain}`;
+};
+```
+
+## アクセシビリティへの配慮
+単に onClick を設定するだけでなく、aria-label を適切に付与し、スクリーンリーダーを利用するユーザーにも「メール送信」の意図が明確に伝わるように設計しています。

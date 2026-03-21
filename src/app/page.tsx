@@ -1,16 +1,20 @@
 import { Mailto } from '@/components/ui/Mailto';
+import Link from 'next/link';
+import { getSnippets } from '@/lib/mdx';
 
-export default function Home() {
+export default async function Home() {
+  const allSnippets = await getSnippets();
+  const latestSnippet = allSnippets[0];
+
   return (
     <main
       className="max-w-4xl mx-auto px-6 py-12 font-sans 
                      text-slate-900 dark:text-slate-100 
                      selection:bg-indigo-100 dark:selection:bg-indigo-900/50"
     >
-      {/* Hero Section */}
+      {/* ... (header and values remain the same) ... */}
       <header className="mb-24">
         <h1 className="text-5xl font-extrabold tracking-tight mb-4">Sae</h1>
-        {/* セカンダリテキストの色をダークモードに対応 */}
         <p className="text-xl text-slate-600 dark:text-slate-400 mb-6">Design Div / Frontend Engineer / UI Designer</p>
         <p className="max-w-2xl leading-relaxed text-lg">
           「違和感のないUIを、設計から実装まで」
@@ -19,7 +23,6 @@ export default function Home() {
         </p>
       </header>
 
-      {/* Core Values (強み) */}
       <section className="mb-24" aria-labelledby="philosophy-title">
         <h2 id="philosophy-title" className="text-sm font-bold uppercase tracking-widest text-indigo-600 dark:text-indigo-400 mb-8">
           Philosophy & Strength
@@ -33,14 +36,12 @@ export default function Home() {
           ].map((item) => (
             <div key={item.title}>
               <h3 className="text-xl font-bold mb-3">{item.title}</h3>
-              {/* 解説テキストの色をダークモードに対応 */}
               <p className="text-slate-600 dark:text-slate-400">{item.desc}</p>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Tech Stack */}
       <section className="mb-24" aria-labelledby="tech-title">
         <h2 id="tech-title" className="text-sm font-bold uppercase tracking-widest text-indigo-600 dark:text-indigo-400 mb-8">
           Technical Stack
@@ -56,9 +57,8 @@ export default function Home() {
             'Figma',
             'Docker',
             'Git',
-            'MDX (coming soon)', // MDXへの布石
+            'MDX',
           ].map((tech) => (
-            // タグの背景色をダークモードに対応
             <span key={tech} className="px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-full text-sm font-medium">
               {tech}
             </span>
@@ -66,7 +66,27 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Footer / Contact */}
+      <section className="mb-24" aria-labelledby="snippets-title">
+        <div className="flex justify-between items-end mb-8">
+          <h2 id="snippets-title" className="text-sm font-bold uppercase tracking-widest text-indigo-600 dark:text-indigo-400">
+            Latest Snippets
+          </h2>
+          <Link href="/snippets" className="text-sm font-bold hover:underline">
+            View All →
+          </Link>
+        </div>
+        <div className="grid gap-4">
+          {latestSnippet ? (
+            <Link href={`/snippets/${latestSnippet.slug}`} className="p-6 border border-slate-200 dark:border-slate-800 rounded-xl hover:border-indigo-600 dark:hover:border-indigo-400 transition-all">
+              <h3 className="font-bold text-lg">{latestSnippet.title}</h3>
+              <p className="text-slate-600 dark:text-slate-400 text-sm mt-2">{latestSnippet.description} [Read More]</p>
+            </Link>
+          ) : (
+            <p className="text-slate-500 italic">Coming soon...</p>
+          )}
+        </div>
+      </section>
+
       <footer className="border-t border-slate-200 dark:border-slate-800 pt-12 flex flex-col md:flex-row justify-between items-center gap-6">
         <p className="text-slate-500 dark:text-slate-500 text-sm">© 2026 Sae.</p>
         <Mailto

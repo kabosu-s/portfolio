@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 :root {
   --background: #ffffff;
@@ -15,5 +16,10 @@
 }
 
 body {
-  @apply antialiased;
+  @apply antialiased bg-background text-foreground dark:bg-slate-950 dark:text-slate-100;
+}
+
+/* proseクラスの微調整: 日本語フォントに合わせる */
+.prose {
+  max-width: none;
 }
