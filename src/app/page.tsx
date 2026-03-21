@@ -1,65 +1,85 @@
-import Image from "next/image";
+import { Mailto } from '@/components/ui/Mailto';
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main
+      className="max-w-4xl mx-auto px-6 py-12 font-sans 
+                     text-slate-900 dark:text-slate-100 
+                     selection:bg-indigo-100 dark:selection:bg-indigo-900/50"
+    >
+      {/* Hero Section */}
+      <header className="mb-24">
+        <h1 className="text-5xl font-extrabold tracking-tight mb-4">Sae</h1>
+        {/* セカンダリテキストの色をダークモードに対応 */}
+        <p className="text-xl text-slate-600 dark:text-slate-400 mb-6">Design Div / Frontend Engineer / UI Designer</p>
+        <p className="max-w-2xl leading-relaxed text-lg">
+          「違和感のないUIを、設計から実装まで」
+          <br />
+          アクセシビリティと実装品質を両立するフロントエンド
+        </p>
+      </header>
+
+      {/* Core Values (強み) */}
+      <section className="mb-24" aria-labelledby="philosophy-title">
+        <h2 id="philosophy-title" className="text-sm font-bold uppercase tracking-widest text-indigo-600 dark:text-indigo-400 mb-8">
+          Philosophy & Strength
+        </h2>
+        <div className="grid md:grid-cols-2 gap-12">
+          {[
+            { title: '01. アクセシビリティを前提に実装', desc: '設計段階からアクセシビリティを考慮し、誰にとっても使いやすい、すべてのユーザーに開かれたUIを実装します。' },
+            { title: '02. 長く運用できるコード', desc: '短期的な実装ではなく、既存コードの改善やリファクタリングも含め、継続的に品質を高めることを意識しています。' },
+            { title: '03. デザインと実装の橋渡し', desc: 'デザイナーとエンジニア両方の視点から、デザイン意図の正確な再現、実装上の制約を踏まえた調整。パフォーマンスと保守性を極限まで高めます。' },
+            { title: '04. 違和感のないUIを作る', desc: '見た目が整っているだけではなく、「操作したときにストレスを感じないこと」を重視したUI設計を行います。' },
+          ].map((item) => (
+            <div key={item.title}>
+              <h3 className="text-xl font-bold mb-3">{item.title}</h3>
+              {/* 解説テキストの色をダークモードに対応 */}
+              <p className="text-slate-600 dark:text-slate-400">{item.desc}</p>
+            </div>
+          ))}
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* Tech Stack */}
+      <section className="mb-24" aria-labelledby="tech-title">
+        <h2 id="tech-title" className="text-sm font-bold uppercase tracking-widest text-indigo-600 dark:text-indigo-400 mb-8">
+          Technical Stack
+        </h2>
+        <div className="flex flex-wrap gap-3">
+          {[
+            'Next.js',
+            'React',
+            'TypeScript',
+            'Tailwind CSS',
+            'Semantic HTML',
+            'a11y',
+            'Figma',
+            'Docker',
+            'Git',
+            'MDX (coming soon)', // MDXへの布石
+          ].map((tech) => (
+            // タグの背景色をダークモードに対応
+            <span key={tech} className="px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-full text-sm font-medium">
+              {tech}
+            </span>
+          ))}
         </div>
-      </main>
-    </div>
+      </section>
+
+      {/* Footer / Contact */}
+      <footer className="border-t border-slate-200 dark:border-slate-800 pt-12 flex flex-col md:flex-row justify-between items-center gap-6">
+        <p className="text-slate-500 dark:text-slate-500 text-sm">© 2026 Sae.</p>
+        <Mailto
+          user="h_kakurega"
+          domain="yahoo.co.jp"
+          className="px-8 py-3 bg-indigo-600 text-white font-bold rounded-lg 
+                     hover:bg-indigo-700 transition-colors 
+                     focus:ring-4 focus:ring-indigo-200 dark:focus:ring-indigo-900 
+                     outline-none"
+        >
+          仕事の相談をする
+        </Mailto>
+      </footer>
+    </main>
   );
 }
