@@ -1,13 +1,6 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --background-dark: #020617; /* slate-950相当 */
-  --foreground-dark: #f1f5f9; /* slate-100相当 */
-}
-
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -15,8 +8,11 @@
   --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular;
 }
 
+/* Tailwind v4 でクラスベースのダークモードを有効にする */
+@variant dark (&:where(.dark, .dark *));
+
 body {
-  @apply antialiased bg-background text-foreground dark:bg-slate-950 dark:text-slate-100;
+  @apply antialiased bg-background text-foreground transition-colors duration-300;
 }
 
 /* proseクラスの微調整: 日本語フォントに合わせる */

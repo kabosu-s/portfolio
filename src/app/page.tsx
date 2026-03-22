@@ -1,4 +1,3 @@
-import { Mailto } from '@/components/ui/Mailto';
 import Link from 'next/link';
 import { getSnippets } from '@/lib/mdx';
 
@@ -7,25 +6,29 @@ export default async function Home() {
   const latestSnippet = allSnippets[0];
 
   return (
-    <main
-      className="max-w-4xl mx-auto px-6 py-12 font-sans 
-                     text-slate-900 dark:text-slate-100 
-                     selection:bg-indigo-100 dark:selection:bg-indigo-900/50"
-    >
-      {/* ... (header and values remain the same) ... */}
-      <header className="mb-24">
-        <h1 className="text-5xl font-extrabold tracking-tight mb-4">Sae</h1>
-        <p className="text-xl text-slate-600 dark:text-slate-400 mb-6">Design Div / Frontend Engineer / UI Designer</p>
-        <p className="max-w-2xl leading-relaxed text-lg">
-          「違和感のないUIを、設計から実装まで」
-          <br />
-          アクセシビリティと実装品質を両立するフロントエンド
-        </p>
-      </header>
+    <>
+      <section className="mb-32 relative">
+        <div className="absolute inset-0 -z-10 [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)] pointer-events-none opacity-50" />
+
+        <div className="space-y-8">
+          <h1 className="text-6xl md:text-7xl font-extrabold tracking-tight leading-[1.1]" lang="en">
+            Crafting <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-indigo-500">Accessible</span> <br />
+            Digital Experiences.
+          </h1>
+
+          <p className="text-xl text-slate-600 dark:text-slate-400 leading-relaxed font-medium">
+            デザインの意図を論理的にコードへ翻訳し、
+            <br />
+            アクセシビリティと保守性を考慮した「持続可能なWeb」を構築します。
+            <br />
+            <span className="text-slate-400 dark:text-slate-500 font-normal text-lg">さえ / Sae — Design Div. & Frontend Engineer.</span>
+          </p>
+        </div>
+      </section>
 
       <section className="mb-24" aria-labelledby="philosophy-title">
-        <h2 id="philosophy-title" className="text-sm font-bold uppercase tracking-widest text-indigo-600 dark:text-indigo-400 mb-8">
-          Philosophy & Strength
+        <h2 id="philosophy-title" className="text-sm font-bold uppercase tracking-widest text-cyan-600 dark:text-cyan-400 mb-8">
+          私の強み — <span lang="en">Philosophy & Strength</span>
         </h2>
         <div className="grid md:grid-cols-2 gap-12">
           {[
@@ -43,22 +46,11 @@ export default async function Home() {
       </section>
 
       <section className="mb-24" aria-labelledby="tech-title">
-        <h2 id="tech-title" className="text-sm font-bold uppercase tracking-widest text-indigo-600 dark:text-indigo-400 mb-8">
-          Technical Stack
+        <h2 id="tech-title" className="text-sm font-bold uppercase tracking-widest text-cyan-600 dark:text-cyan-400 mb-8">
+          技術スタック — <span lang="en">Technical Stack</span>
         </h2>
         <div className="flex flex-wrap gap-3">
-          {[
-            'Next.js',
-            'React',
-            'TypeScript',
-            'Tailwind CSS',
-            'Semantic HTML',
-            'a11y',
-            'Figma',
-            'Docker',
-            'Git',
-            'MDX',
-          ].map((tech) => (
+          {['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'Semantic HTML', 'a11y', 'Figma', 'Docker', 'Git'].map((tech) => (
             <span key={tech} className="px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-full text-sm font-medium">
               {tech}
             </span>
@@ -68,16 +60,16 @@ export default async function Home() {
 
       <section className="mb-24" aria-labelledby="snippets-title">
         <div className="flex justify-between items-end mb-8">
-          <h2 id="snippets-title" className="text-sm font-bold uppercase tracking-widest text-indigo-600 dark:text-indigo-400">
-            Latest Snippets
+          <h2 id="snippets-title" className="text-sm font-bold uppercase tracking-widest text-cyan-600 dark:text-cyan-400">
+            メモ — <span lang="en">Latest Snippets</span>
           </h2>
           <Link href="/snippets" className="text-sm font-bold hover:underline">
-            View All →
+            一覧 →
           </Link>
         </div>
         <div className="grid gap-4">
           {latestSnippet ? (
-            <Link href={`/snippets/${latestSnippet.slug}`} className="p-6 border border-slate-200 dark:border-slate-800 rounded-xl hover:border-indigo-600 dark:hover:border-indigo-400 transition-all">
+            <Link href={`/snippets/${latestSnippet.slug}`} className="p-6 border border-slate-200 dark:border-slate-800 rounded-xl hover:border-cyan-600 dark:hover:border-cyan-400 transition-all">
               <h3 className="font-bold text-lg">{latestSnippet.title}</h3>
               <p className="text-slate-600 dark:text-slate-400 text-sm mt-2">{latestSnippet.description} [Read More]</p>
             </Link>
@@ -86,20 +78,6 @@ export default async function Home() {
           )}
         </div>
       </section>
-
-      <footer className="border-t border-slate-200 dark:border-slate-800 pt-12 flex flex-col md:flex-row justify-between items-center gap-6">
-        <p className="text-slate-500 dark:text-slate-500 text-sm">© 2026 Sae.</p>
-        <Mailto
-          user="h_kakurega"
-          domain="yahoo.co.jp"
-          className="px-8 py-3 bg-indigo-600 text-white font-bold rounded-lg 
-                     hover:bg-indigo-700 transition-colors 
-                     focus:ring-4 focus:ring-indigo-200 dark:focus:ring-indigo-900 
-                     outline-none"
-        >
-          仕事の相談をする
-        </Mailto>
-      </footer>
-    </main>
+    </>
   );
 }

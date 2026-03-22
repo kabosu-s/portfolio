@@ -37,16 +37,7 @@ export default async function SnippetDetailPage({ params }: Props) {
     const { default: PostContent } = await import(`@/content/snippets/${slug}.mdx`);
 
     return (
-      <main className="max-w-3xl mx-auto px-6 py-12">
-        {/* ナビゲーション */}
-        <nav className="mb-12">
-          <Link 
-            href="/snippets" 
-            className="text-sm text-indigo-600 dark:text-indigo-400 hover:underline flex items-center gap-2"
-          >
-            <span>←</span> Back to Snippets
-          </Link>
-        </nav>
+      <main className="max-w-3xl mx-auto px-6 py-12 transition-colors duration-300">
 
         <header className="mb-12">
           <time className="text-sm text-slate-500">{snippet.date}</time>
@@ -60,14 +51,11 @@ export default async function SnippetDetailPage({ params }: Props) {
 
         {/* フッター代わりの連絡導線 */}
         <footer className="mt-24 pt-12 border-t border-slate-200 dark:border-slate-800">
-          <p className="text-slate-600 dark:text-slate-400 mb-4">
-            この記事に関する質問や、実装のご相談はこちらまで。
-          </p>
           <Link 
-            href="/" 
-            className="text-indigo-600 dark:text-indigo-400 font-bold hover:underline"
+            href="/snippets" 
+            className="text-sm text-cyan-600 dark:text-cyan-400 hover:underline flex items-center gap-2"
           >
-            Topに戻って相談する →
+            <span>←</span> Back to Snippets
           </Link>
         </footer>
       </main>
