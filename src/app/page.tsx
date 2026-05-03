@@ -19,7 +19,7 @@ export default async function Home() {
           <p className="text-xl text-slate-600 dark:text-slate-400 leading-relaxed font-medium">
             デザインの意図を論理的にコードへ翻訳し、
             <br />
-            アクセシビリティと保守性を考慮した「持続可能なWeb」を構築します。
+            アクセシビリティと保守性を考慮した「持続可能なWeb」の構築
             <br />
             <span className="text-slate-400 dark:text-slate-500 font-normal text-lg">さえ / Sae — Design Div. & Frontend Engineer.</span>
           </p>
@@ -28,11 +28,11 @@ export default async function Home() {
 
       <section className="mb-24" aria-labelledby="philosophy-title">
         <h2 id="philosophy-title" className="text-sm font-bold uppercase tracking-widest text-cyan-600 dark:text-cyan-400 mb-8">
-          私の強み — <span lang="en">Philosophy & Strength</span>
+          ポリシー — <span lang="en">Philosophy & Strength</span>
         </h2>
         <div className="grid md:grid-cols-2 gap-12">
           {[
-            { title: '01. アクセシビリティを前提に実装', desc: '設計段階からアクセシビリティを考慮し、誰にとっても使いやすい、すべてのユーザーに開かれたUIを実装します。' },
+            { title: '01. アクセシビリティを前提に実装', desc: '設計段階からアクセシビリティを考慮し、誰にとっても使いやすい、すべてのユーザーに開かれたUI実装を目指します。' },
             { title: '02. 長く運用できるコード', desc: '短期的な実装ではなく、既存コードの改善やリファクタリングも含め、継続的に品質を高めることを意識しています。' },
             { title: '03. デザインと実装の橋渡し', desc: 'デザイナーとエンジニア両方の視点から、デザイン意図の正確な再現、実装上の制約を踏まえた調整。パフォーマンスと保守性を極限まで高めます。' },
             { title: '04. 違和感のないUIを作る', desc: '見た目が整っているだけではなく、「操作したときにストレスを感じないこと」を重視したUI設計を行います。' },
