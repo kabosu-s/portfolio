@@ -1,0 +1,43 @@
+language: 'ja'
+reviews:
+  profile: 'chill'
+  request_changes_workflow: false
+  high_level_summary: true
+  review_status: true
+  collapse_walkthrough: false
+  auto_review:
+    enabled: true                                                         
+    base_branches:       
+      - "main"
+  path_filters:
+    - '!**/*.lock'
+    - '!**/package-lock.json'
+    - '!**/pnpm-lock.yaml'
+    - '!**/bun.lockb'
+    - '!**/node_modules/**'
+  path_instructions:
+    - path: '**/*.{ts,tsx}'
+      instructions: |
+        Next.js App RouterのTypeScriptファイルです。以下の観点でレビューしてください：
+        - 不要なuse clientディレクティブがないか（Server Componentの恩恵を失うためCritical）
+        - Server Actionsは冒頭でauth()を呼んでセッションを検証しているか
+        - Route Handlersでもセッションチェックがあるか（(authenticated)配下でもAPIは別途確認が必要）
+        - ユーザー入力にZodバリデーションがあるか
+        - anyの使用・不要な型キャストがないか（Warning）
+        - 他ユーザーのリソースを操作できるような認可漏れがないか（Critical）
+        - TanStack Queryのキーが適切か（過度な再フェッチ、キャッシュ漏れ）
+        - N+1クエリになっていないか（Prismaのincludeの使い方）
+        - Cloudinaryへの画像アップロード時に認証チェックがあるか
+        - 環境変数を直接コードに埋め込まれていないか
+    - path: 'src/app/**/*.{ts,tsx}'
+      instructions: |
+        app/配下はルーティングのみを担う薄いレイヤーです。以下を確認してください：
+        - page.tsxでデータフェッチ（fetch・Prismaクエリ・Server Action呼び出し）を直接行っていないか
+        - データフェッチやUIロジックはfeatures/配下のServer Componentテンプレートに委譲しているか
+        - params・searchParamsはawaitで受け取り、型付きで渡しているか
+    - path: 'src/components/**'
+      instructions: |
+        components/配下は再利用可能なReactコンポーネントです。以下を確認してください：
+        - 再利用可能なコンポーネントか
+chat:
+  auto_reply: true
