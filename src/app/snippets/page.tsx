@@ -20,7 +20,7 @@ export default async function SnippetsIndex() {
           snippets.map((post) => (
             <Link key={post.slug} href={`/snippets/${post.slug}`} className="group block">
               <article className="p-8 border-4 border-text bg-surface dark:bg-slate-900 shadow-[6px_6px_0px_0px_rgba(28,41,60,1)] dark:shadow-[6px_6px_0px_0px_rgba(251,251,249,0.1)] group-hover:translate-x-[2px] group-hover:translate-y-[2px] group-hover:shadow-[4px_4px_0px_0px_rgba(28,41,60,1)] transition-all">
-                <time className="inline-block px-3 py-1 bg-secondary text-surface text-xs font-black uppercase tracking-widest border-2 border-text mb-4">
+                <time dateTime={post.date} className="inline-block px-3 py-1 bg-secondary text-surface text-xs font-black uppercase tracking-widest border-2 border-text mb-4">
                   {post.date}
                 </time>
                 <h2 className="text-3xl font-black mt-2 text-text dark:text-surface group-hover:text-secondary transition-colors">
