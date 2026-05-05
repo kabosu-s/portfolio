@@ -71,32 +71,32 @@ export const ContactForm = ({ onSuccess }: ContactFormProps) => {
 
   if (isSubmitted) {
     return (
-      <div className="bg-cyan-50 dark:bg-cyan-900/20 border border-cyan-200 dark:border-cyan-800 p-8 rounded-2xl text-center">
-        <h2 className="text-2xl font-bold text-cyan-800 dark:text-cyan-400 mb-2">
-          送信完了
+      <div className="bg-success/20 border-4 border-text p-8 text-center shadow-[4px_4px_0px_0px_rgba(28,41,60,1)] dark:shadow-[4px_4px_0px_0px_rgba(251,251,249,1)]">
+        <h2 className="text-3xl font-black text-text dark:text-surface mb-2 uppercase">
+          Success!
         </h2>
-        <p className="text-slate-600 dark:text-slate-400 mb-6">
+        <p className="text-text dark:text-slate-300 font-bold mb-6">
           お問い合わせありがとうございます。メッセージは正常に送信されました。
         </p>
         <button
           onClick={() => setIsSubmitted(false)}
-          className="text-sm font-bold text-cyan-600 dark:text-cyan-400 hover:underline"
+          className="px-6 py-2 bg-secondary text-surface border-2 border-text font-black hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-none shadow-[2px_2px_0px_0px_rgba(28,41,60,1)] transition-all"
         >
-          別のメッセージを送る
+          Another Message →
         </button>
       </div>
     );
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
-      <div className="grid md:grid-cols-2 gap-6">
-        <div className="space-y-2">
+    <form onSubmit={handleSubmit} className="space-y-8">
+      <div className="grid md:grid-cols-2 gap-8">
+        <div className="space-y-3">
           <label
             htmlFor="name"
-            className="text-sm font-bold text-slate-700 dark:text-slate-300"
+            className="text-sm font-black text-text dark:text-surface uppercase tracking-wider"
           >
-            お名前 <span className="text-red-500">*</span>
+            お名前 <span className="text-danger">*</span>
           </label>
           <input
             id="name"
@@ -105,20 +105,20 @@ export const ContactForm = ({ onSuccess }: ContactFormProps) => {
             value={formData.name}
             onChange={handleChange}
             placeholder="山田 太郎"
-            className={`w-full px-4 py-3 bg-slate-50 dark:bg-slate-900 border ${
-              errors.name ? "border-red-500" : "border-slate-200 dark:border-slate-800"
-            } rounded-xl focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition-all`}
+            className={`w-full px-4 py-3 bg-surface dark:bg-slate-800 border-2 ${
+              errors.name ? "border-danger" : "border-text"
+            } shadow-[2px_2px_0px_0px_rgba(28,41,60,1)] focus:translate-x-[1px] focus:translate-y-[1px] focus:shadow-none outline-none transition-all font-bold text-text dark:text-surface`}
           />
           {errors.name && (
-            <p className="text-xs font-medium text-red-500">{errors.name}</p>
+            <p className="text-xs font-black text-danger uppercase">{errors.name}</p>
           )}
         </div>
-        <div className="space-y-2">
+        <div className="space-y-3">
           <label
             htmlFor="email"
-            className="text-sm font-bold text-slate-700 dark:text-slate-300"
+            className="text-sm font-black text-text dark:text-surface uppercase tracking-wider"
           >
-            メールアドレス <span className="text-red-500">*</span>
+            メールアドレス <span className="text-danger">*</span>
           </label>
           <input
             id="email"
@@ -127,22 +127,22 @@ export const ContactForm = ({ onSuccess }: ContactFormProps) => {
             value={formData.email}
             onChange={handleChange}
             placeholder="example@mail.com"
-            className={`w-full px-4 py-3 bg-slate-50 dark:bg-slate-900 border ${
-              errors.email ? "border-red-500" : "border-slate-200 dark:border-slate-800"
-            } rounded-xl focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition-all`}
+            className={`w-full px-4 py-3 bg-surface dark:bg-slate-800 border-2 ${
+              errors.email ? "border-danger" : "border-text"
+            } shadow-[2px_2px_0px_0px_rgba(28,41,60,1)] focus:translate-x-[1px] focus:translate-y-[1px] focus:shadow-none outline-none transition-all font-bold text-text dark:text-surface`}
           />
           {errors.email && (
-            <p className="text-xs font-medium text-red-500">{errors.email}</p>
+            <p className="text-xs font-black text-danger uppercase">{errors.email}</p>
           )}
         </div>
       </div>
 
-      <div className="space-y-2">
+      <div className="space-y-3">
         <label
           htmlFor="subject"
-          className="text-sm font-bold text-slate-700 dark:text-slate-300"
+          className="text-sm font-black text-text dark:text-surface uppercase tracking-wider"
         >
-          件名 <span className="text-red-500">*</span>
+          件名 <span className="text-danger">*</span>
         </label>
         <input
           id="subject"
@@ -151,21 +151,21 @@ export const ContactForm = ({ onSuccess }: ContactFormProps) => {
           value={formData.subject}
           onChange={handleChange}
           placeholder="お仕事のご依頼について"
-          className={`w-full px-4 py-3 bg-slate-50 dark:bg-slate-900 border ${
-            errors.subject ? "border-red-500" : "border-slate-200 dark:border-slate-800"
-          } rounded-xl focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition-all`}
+          className={`w-full px-4 py-3 bg-surface dark:bg-slate-800 border-2 ${
+            errors.subject ? "border-danger" : "border-text"
+          } shadow-[2px_2px_0px_0px_rgba(28,41,60,1)] focus:translate-x-[1px] focus:translate-y-[1px] focus:shadow-none outline-none transition-all font-bold text-text dark:text-surface`}
         />
         {errors.subject && (
-          <p className="text-xs font-medium text-red-500">{errors.subject}</p>
+          <p className="text-xs font-black text-danger uppercase">{errors.subject}</p>
         )}
       </div>
 
-      <div className="space-y-2">
+      <div className="space-y-3">
         <label
           htmlFor="message"
-          className="text-sm font-bold text-slate-700 dark:text-slate-300"
+          className="text-sm font-black text-text dark:text-surface uppercase tracking-wider"
         >
-          メッセージ <span className="text-red-500">*</span>
+          メッセージ <span className="text-danger">*</span>
         </label>
         <textarea
           id="message"
@@ -174,27 +174,29 @@ export const ContactForm = ({ onSuccess }: ContactFormProps) => {
           value={formData.message}
           onChange={handleChange}
           placeholder="こちらにメッセージを入力してください"
-          className={`w-full px-4 py-3 bg-slate-50 dark:bg-slate-900 border ${
-            errors.message ? "border-red-500" : "border-slate-200 dark:border-slate-800"
-          } rounded-xl focus:ring-2 focus:ring-cyan-500 focus:border-transparent outline-none transition-all resize-none`}
+          className={`w-full px-4 py-3 bg-surface dark:bg-slate-800 border-2 ${
+            errors.message ? "border-danger" : "border-text"
+          } shadow-[2px_2px_0px_0px_rgba(28,41,60,1)] focus:translate-x-[1px] focus:translate-y-[1px] focus:shadow-none outline-none transition-all resize-none font-bold text-text dark:text-surface`}
         />
         {errors.message && (
-          <p className="text-xs font-medium text-red-500">{errors.message}</p>
+          <p className="text-xs font-black text-danger uppercase">{errors.message}</p>
         )}
       </div>
 
       <button
         type="submit"
         disabled={isSubmitting}
-        className="w-full py-4 bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900 rounded-xl font-bold hover:scale-[1.02] active:scale-[0.98] transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+        className="w-full py-4 bg-primary text-text border-4 border-text shadow-[6px_6px_0px_0px_rgba(28,41,60,1)] dark:shadow-[6px_6px_0px_0px_rgba(251,251,249,1)] font-black text-xl uppercase tracking-tighter hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_0px_rgba(28,41,60,1)] disabled:opacity-50 disabled:cursor-not-allowed transition-all flex items-center justify-center gap-3"
       >
         {isSubmitting ? (
           <>
-            <span className="w-4 h-4 border-2 border-white dark:border-slate-900 border-t-transparent rounded-full animate-spin" />
-            送信中...
+            <span className="w-6 h-6 border-4 border-text border-t-transparent rounded-full animate-spin" />
+            Sending...
           </>
         ) : (
-          "メッセージを送信する"
+          <>
+            Send Message <span className="text-2xl">→</span>
+          </>
         )}
       </button>
     </form>

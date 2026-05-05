@@ -5,7 +5,59 @@
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --font-sans: var(--font-noto-sans-jp), ui-sans-serif, system-ui;
-  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular;
+
+  /* Color Palette - Neobrutalism */
+  --color-primary: #FDC800;
+  --color-secondary: #432DD7;
+  
+  --color-surface: #FBFBF9;
+  --color-surface-muted: #ffffff;
+  --color-surface-strong: #f5f5f0;
+  --color-surface-raised: #ffdb33;
+
+  --color-text: #1C293C;
+  --color-text-secondary: #5a5a5a;
+  --color-text-inverse: oklab(0 0 0 / 0.8);
+  
+  --color-border-default: #000000;
+
+  --color-success: #16A34A;
+  --color-warning: #D97706;
+  --color-danger: #DC2626;
+
+  /* Spacing Scale */
+  --spacing-1: 8px;
+  --spacing-2: 12px;
+  --spacing-3: 16px;
+  --spacing-4: 24px;
+  --spacing-5: 32px;
+  --spacing-6: 40px;
+  --spacing-7: 48px;
+  --spacing-8: 64px;
+
+  /* Typography Scale */
+  --text-xs: 14px;
+  --text-sm: 16px;
+  --text-md: 20px;
+  --text-lg: 24px;
+  --text-xl: 30px;
+  --text-2xl: 36px;
+  --text-3xl: 72px;
+  --text-4xl: 88px;
+
+  /* Shadows */
+  --shadow-neobrutalism-1: 4px 4px 0px 0px #000000;
+  --shadow-neobrutalism-2: 3px 3px 0px 0px #000000;
+  --shadow-neobrutalism-hover: 2px 2px 0px 0px #000000;
+
+  /* Motion */
+  --animate-instant: 100ms;
+  --animate-fast: 150ms;
+  --animate-normal: 300ms;
+
+  --border-width-thick: 4px;
+  --border-width-thin: 2px;
 }
 
 /* Tailwind v4 でクラスベースのダークモードを有効にする */

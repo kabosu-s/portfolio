@@ -18,26 +18,22 @@ reviews:
   path_instructions:
     - path: '**/*.{ts,tsx}'
       instructions: |
-        Next.js App RouterのTypeScriptファイルです。以下の観点でレビューしてください：
-        - 不要なuse clientディレクティブがないか（Server Componentの恩恵を失うためCritical）
-        - Server Actionsは冒頭でauth()を呼んでセッションを検証しているか
-        - Route Handlersでもセッションチェックがあるか（(authenticated)配下でもAPIは別途確認が必要）
-        - ユーザー入力にZodバリデーションがあるか
-        - anyの使用・不要な型キャストがないか（Warning）
-        - 他ユーザーのリソースを操作できるような認可漏れがないか（Critical）
-        - TanStack Queryのキーが適切か（過度な再フェッチ、キャッシュ漏れ）
-        - N+1クエリになっていないか（Prismaのincludeの使い方）
-        - Cloudinaryへの画像アップロード時に認証チェックがあるか
-        - 環境変数を直接コードに埋め込まれていないか
+        Next.js 15 (App Router) & Tailwind CSS 4のプロジェクトです。以下の観点でレビューしてください：
+        - Accessibility (a11y) First: セマンティックHTMLの使用、適切なaria-label、フォーカス管理が行われているか。
+        - Neobrutalism Design: デザインSkillに沿った実装か（太いボーダー、ハードシャドウ、セマンティックな色の使用）。
+        - TypeScript: anyの使用・不要な型キャストがないか（Warning）。
+        - コンポーネント定義: `export const ComponentName = ({ props }: Props) => { ... }` 形式か。`interface`定義が同ファイルにあるか。
+        - Client Components: ブラウザAPIやStateが必要な場合のみ `"use client";` が付与されているか。
+        - Tailwind CSS 4: `@theme inline` 変数を使用しているか。長いクラス文字列には読みやすさのための改行があるか。
     - path: 'src/app/**/*.{ts,tsx}'
       instructions: |
-        app/配下はルーティングのみを担う薄いレイヤーです。以下を確認してください：
-        - page.tsxでデータフェッチ（fetch・Prismaクエリ・Server Action呼び出し）を直接行っていないか
-        - データフェッチやUIロジックはfeatures/配下のServer Componentテンプレートに委譲しているか
-        - params・searchParamsはawaitで受け取り、型付きで渡しているか
-    - path: 'src/components/**'
+        app/配下はルーティングとページ定義を担います。
+        - params・searchParamsは Promise として扱い、必ず `await` して使用しているか（Next.js 15の破壊的変更）。
+        - Server Components を優先し、副作用のないデータ取得が行われているか。
+    - path: 'src/components/ui/**/*.{ts,tsx}'
       instructions: |
-        components/配下は再利用可能なReactコンポーネントです。以下を確認してください：
-        - 再利用可能なコンポーネントか
+        汎用的なUIコンポーネントです。
+        - Neobrutalism スタイルの整合性（border-2〜4, shadow-[4px_4px_0px_0px_...] 等）を確認してください。
+        - 再利用性が高く、特定のドメイン知識が混入していないか。
 chat:
   auto_reply: true
