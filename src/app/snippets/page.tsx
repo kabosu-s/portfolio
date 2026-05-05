@@ -1,4 +1,3 @@
-
 import Link from "next/link";
 import { getSnippets } from "@/lib/mdx";
 
@@ -6,30 +5,33 @@ export default async function SnippetsIndex() {
   const snippets = await getSnippets();
 
   return (
-    <main className="max-w-4xl mx-auto px-6 py-12 text-slate-900 dark:text-slate-100 transition-colors duration-300">
-      <header className="mb-12 flex justify-between items-start">
-        <div>
-          <h1 className="text-4xl font-bold">Snippets & Insights</h1>
-          <p className="mt-4 text-slate-600 dark:text-slate-400">
-            実務で得たフロントエンドの知見を、アクセシビリティと保守性の観点から整理。
-          </p>
-        </div>
+    <main className="max-w-4xl mx-auto py-12">
+      <header className="mb-16 p-8 bg-primary border-4 border-text shadow-[8px_8px_0px_0px_rgba(28,41,60,1)] dark:shadow-[8px_8px_0px_0px_rgba(251,251,249,0.2)]">
+        <h1 className="text-5xl font-black tracking-tight text-text uppercase leading-none">Snippets & Insights</h1>
+        <p className="mt-6 text-text font-bold text-lg max-w-2xl leading-relaxed">
+          実務で得たフロントエンドの知見を、アクセシビリティと保守性の観点から整理。
+        </p>
       </header>
 
       <div className="grid gap-8">
         {snippets.length === 0 ? (
-          <p className="text-slate-500 italic">No snippets found.</p>
+          <p className="text-slate-500 font-bold italic">No snippets found.</p>
         ) : (
           snippets.map((post) => (
-            <Link key={post.slug} href={`/snippets/${post.slug}`} className="group">
-              <article className="p-6 border border-slate-200 dark:border-slate-800 rounded-xl hover:bg-slate-50 dark:hover:bg-slate-900 transition-colors">
-                <time className="text-sm text-slate-500">{post.date}</time>
-                <h2 className="text-2xl font-bold mt-2 group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors">
+            <Link key={post.slug} href={`/snippets/${post.slug}`} className="group block">
+              <article className="p-8 border-4 border-text bg-surface dark:bg-slate-900 shadow-[6px_6px_0px_0px_rgba(28,41,60,1)] dark:shadow-[6px_6px_0px_0px_rgba(251,251,249,0.1)] group-hover:translate-x-[2px] group-hover:translate-y-[2px] group-hover:shadow-[4px_4px_0px_0px_rgba(28,41,60,1)] transition-all">
+                <time className="inline-block px-3 py-1 bg-secondary text-surface text-xs font-black uppercase tracking-widest border-2 border-text mb-4">
+                  {post.date}
+                </time>
+                <h2 className="text-3xl font-black mt-2 text-text dark:text-surface group-hover:text-secondary transition-colors">
                   {post.title}
                 </h2>
-                <p className="mt-3 text-slate-600 dark:text-slate-400 leading-relaxed">
+                <p className="mt-4 text-text dark:text-slate-300 font-medium leading-relaxed text-lg">
                   {post.description}
                 </p>
+                <div className="mt-8 font-black text-sm uppercase tracking-tighter inline-flex items-center gap-2">
+                  Read More <span className="text-xl">→</span>
+                </div>
               </article>
             </Link>
           ))

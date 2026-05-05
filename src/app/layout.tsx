@@ -33,12 +33,12 @@ export default function RootLayout({
     <html lang="ja" className={`${notoSansJP.variable} ${geistMono.variable} h-full antialiased`} suppressHydrationWarning>
       <body className="font-sans bg-background text-foreground bg-grid">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          <div className="min-h-screen bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 selection:bg-cyan-500 selection:text-white transition-colors duration-300">
+          <div className="min-h-screen bg-surface dark:bg-slate-950 text-text dark:text-surface selection:bg-primary selection:text-text transition-colors duration-300">
             <Header />
             <main
               className="max-w-4xl mx-auto px-6 py-12 font-sans 
-                     text-slate-900 dark:text-slate-100 
-                     selection:bg-cyan-100 dark:selection:bg-cyan-900/50"
+                     text-text dark:text-surface 
+                     selection:bg-primary selection:text-text"
             >
               {children}
               <Footer />

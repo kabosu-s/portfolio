@@ -6,6 +6,17 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-noto-sans-jp), ui-sans-serif, system-ui;
   --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular;
+
+  --color-primary: #FDC800;
+  --color-secondary: #432DD7;
+  --color-surface: #FBFBF9;
+  --color-text: #1C293C;
+  --color-success: #16A34A;
+  --color-warning: #D97706;
+  --color-danger: #DC2626;
+
+  --border-width-thick: 4px;
+  --border-width-thin: 2px;
 }
 
 /* Tailwind v4 でクラスベースのダークモードを有効にする */

@@ -37,25 +37,41 @@ export default async function SnippetDetailPage({ params }: Props) {
     const { default: PostContent } = await import(`@/content/snippets/${slug}.mdx`);
 
     return (
-      <main className="max-w-3xl mx-auto px-6 py-12 transition-colors duration-300">
-
+      <main className="max-w-4xl mx-auto py-12">
         <header className="mb-12">
-          <time className="text-sm text-slate-500">{snippet.date}</time>
-          <h1 className="text-4xl font-bold mt-2 text-slate-900 dark:text-slate-100">{snippet.title}</h1>
+          <Link 
+            href="/snippets" 
+            className="inline-flex items-center gap-2 text-sm font-black text-text hover:text-secondary transition-colors group mb-8"
+          >
+            <span className="text-xl group-hover:-translate-x-1 transition-transform">←</span> Back to Snippets
+          </Link>
+
+          <div className="p-8 bg-primary border-4 border-text shadow-[8px_8px_0px_0px_rgba(28,41,60,1)] dark:shadow-[8px_8px_0px_0px_rgba(251,251,249,0.2)]">
+            <time className="inline-block px-3 py-1 bg-secondary text-surface text-xs font-black uppercase tracking-widest border-2 border-text mb-4">
+              {snippet.date}
+            </time>
+            <h1 className="text-4xl md:text-5xl font-black mt-2 text-text uppercase leading-tight">
+              {snippet.title}
+            </h1>
+          </div>
         </header>
 
         {/* 記事本文：proseクラスを当ててスタイリングを制御 */}
-        <article className="prose prose-slate dark:prose-invert max-w-none">
+        <article className="p-8 md:p-12 border-4 border-text bg-surface dark:bg-slate-900 shadow-[8px_8px_0px_0px_rgba(28,41,60,1)] dark:shadow-[8px_8px_0px_0px_rgba(251,251,249,0.1)] prose prose-slate dark:prose-invert max-w-none
+          prose-h2:border-b-4 prose-h2:border-text prose-h2:pb-2 prose-h2:font-black prose-h2:uppercase
+          prose-a:text-secondary prose-a:font-black prose-a:no-underline hover:prose-a:underline
+          prose-pre:border-2 prose-pre:border-text prose-pre:rounded-none prose-pre:shadow-[4px_4px_0px_0px_rgba(28,41,60,1)]
+        ">
           <PostContent />
         </article>
 
         {/* フッター代わりの連絡導線 */}
-        <footer className="mt-24 pt-12 border-t border-slate-200 dark:border-slate-800">
+        <footer className="mt-16 flex justify-center">
           <Link 
-            href="/snippets" 
-            className="text-sm text-cyan-600 dark:text-cyan-400 hover:underline flex items-center gap-2"
+            href="/contact" 
+            className="px-8 py-4 bg-primary text-text border-4 border-text shadow-[6px_6px_0px_0px_rgba(28,41,60,1)] font-black text-xl uppercase hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_0px_rgba(28,41,60,1)] transition-all"
           >
-            <span>←</span> Back to Snippets
+            Discuss this Snippet →
           </Link>
         </footer>
       </main>
