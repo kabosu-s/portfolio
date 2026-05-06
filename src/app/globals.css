@@ -19,6 +19,8 @@
 
   --color-primary: #ffdb33; /* Yellow */
   --color-secondary: #432dd7; /* Purple */
+  --color-accent: #0091ae;
+
   /* Feedback */
   --color-success: #16a34a;
   --color-warning: #d97706;
@@ -26,28 +28,29 @@
 }
 
 .dark {
-/* Dark Mode (Noctis Azureus inspired) */
-    --color-background: #051b29;
-    --color-foreground: #becfda;
-    --color-surface: #051b29;
-    --color-surface-muted: #0d2a3d;
-    --color-surface-strong: #163346;
-    --color-surface-raised: #49ace9;
-    
-    --color-text: #becfda;
-    --color-text-secondary: #7b96a9;
-    --color-text-inverse: oklab(0 0 0 / 0.8);
-    
-    --color-border-default: #1e3a4e;
-    --shadow-color: #020d14;
-    
-    --color-primary: #0091ae; 
-    --color-secondary: #8275e9;
+  /* Dark Mode (Noctis Azureus inspired) */
+  --color-background: #051b29;
+  --color-foreground: #becfda;
+  --color-surface: #051b29;
+  --color-surface-muted: #0d2a3d;
+  --color-surface-strong: #163346;
+  --color-surface-raised: #49ace9;
 
-    /* Feedback */
-    --color-success: #49e9a6;
-    --color-warning: #e4b781;
-    --color-danger: #e66533;
+  --color-text: #becfda;
+  --color-text-secondary: #7b96a9;
+  --color-text-inverse: oklab(0 0 0 / 0.8);
+
+  --color-border-default: #1e3a4e;
+  --shadow-color: #020d14;
+
+  --color-primary: #0091ae;
+  --color-secondary: #8275e9;
+  --color-accent: #ffdb33;
+
+  /* Feedback */
+  --color-success: #49e9a6;
+  --color-warning: #e4b781;
+  --color-danger: #e66533;
 }
 
 @theme inline {
@@ -58,24 +61,24 @@
   /* Colors */
   --color-background: var(--color-background);
   --color-foreground: var(--color-foreground);
-  --color-primary: var(--color-primary);
-  --color-secondary: var(--color-secondary);
-  --color-accent: #14b8a6;
-
   --color-surface: var(--color-surface);
   --color-surface-muted: var(--color-surface-muted);
   --color-surface-strong: var(--color-surface-strong);
-  --color-surface-raised: #ffdb33;
+  --color-surface-raised: var(--color-surface-raised);
 
   --color-text: var(--color-text);
   --color-text-secondary: var(--color-text-secondary);
-  --color-text-inverse: oklab(0 0 0 / 0.8);
+  --color-text-inverse: var(--color-text-inverse);
 
   --color-border-default: var(--color-border-default);
 
-  --color-success: #16a34a;
-  --color-warning: #d97706;
-  --color-danger: #dc2626;
+  --color-primary: var(--color-primary);
+  --color-secondary: var(--color-secondary);
+  --color-accent: var(--color-accent);
+
+  --color-success: var(--color-success);
+  --color-warning: var(--color-warning);
+  --color-danger:  var(--color-danger);
 
   /* --- Shadows --- */
   --shadow-large: 4px 4px 0px 0px var(--shadow-color);

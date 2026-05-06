@@ -15,7 +15,7 @@ This skill guides the implementation of the Neobrutalism design system: a modern
 - **Base Style**: `size: 16px`, `weight: 400`, `line-height: 24px`
 - **Scale**:
     - `xs`: 14px/0.875rem
-    - `sm`: 16px/11rem (Base)
+    - `sm`: 16px/1rem (Base)
     - `md`: 20px/1.25rem
     - `lg`: 24px/1.5rem
     - `xl`: 30px/1.875rem
@@ -54,9 +54,9 @@ This skill guides the implementation of the Neobrutalism design system: a modern
 
 ### Shadows and Motion
 - **Shadows**: Must be hard shadows (no blur).
-    - `shadow.large`: `2px 2px 0px 0px rgb(0, 0, 0)`
+    - `shadow.large`: `4px 4px 0px 0px rgb(0, 0, 0)`
     - `shadow.normal`: `3px 3px 0px 0px rgb(0, 0, 0)`
-    - `shadow.mini`: `4px 4px 0px 0px rgb(0, 0, 0)`
+    - `shadow.mini`: `2px 2px 0px 0px rgb(0, 0, 0)`
 - **Motion**:
     - `instant`: 100ms
     - `fast`: 150ms
