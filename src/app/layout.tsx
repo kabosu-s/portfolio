@@ -31,14 +31,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ja" className={`${notoSansJP.variable} ${jetbrainsMono.variable} h-full antialiased`} suppressHydrationWarning>
-      <body className="font-sans bg-background text-foreground bg-grid">
+      <body className="font-sans text-foreground bg-grid">
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          <div className="min-h-screen bg-surface dark:bg-slate-950 text-text dark:text-surface selection:bg-primary selection:text-text transition-colors duration-300">
+          <div
+            className="min-h-screen selection:bg-primary selection:text-text transition-colors duration-300"
+          >
             <Header />
             <main
-              className="max-w-6xl mx-auto px-6 py-12 font-sans 
-                     text-text dark:text-surface 
-                     selection:bg-primary selection:text-text"
+              className="max-w-6xl mx-auto px-6 py-12 font-sans text-text selection:bg-primary selection:text-text"
             >
               {children}
               <Footer />

@@ -14,28 +14,28 @@ This skill guides the implementation of the Neobrutalism design system: a modern
 - **Monospace**: JetBrains Mono
 - **Base Style**: `size: 16px`, `weight: 400`, `line-height: 24px`
 - **Scale**:
-    - `xs`: 14px
-    - `sm`: 16px (Base)
-    - `md`: 20px
-    - `lg`: 24px
-    - `xl`: 30px
-    - `2xl`: 36px
-    - `3xl`: 72px
-    - `4xl`: 88px
+    - `xs`: 14px/0.875rem
+    - `sm`: 16px/11rem (Base)
+    - `md`: 20px/1.25rem
+    - `lg`: 24px/1.5rem
+    - `xl`: 30px/1.875rem
+    - `2xl`: 36px/2.25rem
+    - `3xl`: 72px/4.5rem
+    - `4xl`: 88px/5.5rem
 
 ### Color Palette
 - **Border**: `default: #000000`
 - **Surface**:
-    - `default`: `#FBFBF9` (Warm White)
+    - `default`: `#efe9d9` (Warm White)
     - `muted`: `#ffffff`
     - `strong`: `#f5f5f0`
-    - `raised`: `#ffdb33` (Primary Accent)
+    - `raised`: `#FDC800` (Primary Accent)
 - **Text**:
     - `primary`: `#1C293C` (Dark Navy)
     - `secondary`: `#5a5a5a`
     - `inverse`: `oklab(0 0 0 / 0.8)`
 - **Accents**:
-    - `primary`: `#FDC800` (Yellow)
+    - `primary`: `#ffdb33` (Yellow)
     - `secondary`: `#432DD7` (Purple)
 - **Feedback**:
     - `success`: `#16A34A`
@@ -54,9 +54,9 @@ This skill guides the implementation of the Neobrutalism design system: a modern
 
 ### Shadows and Motion
 - **Shadows**: Must be hard shadows (no blur).
-    - `shadow.1`: `4px 4px 0px 0px rgb(0, 0, 0)`
-    - `shadow.2`: `3px 3px 0px 0px rgb(0, 0, 0)`
-    - `shadow.3`: `4px 4px 0px 0px rgb(0, 0, 0)`
+    - `shadow.large`: `2px 2px 0px 0px rgb(0, 0, 0)`
+    - `shadow.normal`: `3px 3px 0px 0px rgb(0, 0, 0)`
+    - `shadow.mini`: `4px 4px 0px 0px rgb(0, 0, 0)`
 - **Motion**:
     - `instant`: 100ms
     - `fast`: 150ms

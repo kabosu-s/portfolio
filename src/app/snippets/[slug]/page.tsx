@@ -54,7 +54,7 @@ export default async function SnippetDetailPage({ params }: Props) {
           <span className="text-xl group-hover:-translate-x-1 transition-transform">←</span> Back to Snippets
         </Link>
 
-        <div className="p-8 bg-primary border-4 border-text shadow-[8px_8px_0px_0px_rgba(28,41,60,1)] dark:shadow-[8px_8px_0px_0px_rgba(251,251,249,0.2)]">
+        <div className="p-8 bg-primary border-4 border-text shadow-large">
           <time dateTime={snippet.date} className="inline-block px-3 py-1 bg-secondary text-surface text-xs font-black uppercase tracking-widest border-2 border-text mb-4">
             {snippet.date}
           </time>
@@ -65,10 +65,10 @@ export default async function SnippetDetailPage({ params }: Props) {
       </header>
 
       {/* 記事本文：proseクラスを当ててスタイリングを制御 */}
-      <article className="p-8 md:p-12 border-4 border-text bg-surface dark:bg-slate-900 shadow-[8px_8px_0px_0px_rgba(28,41,60,1)] dark:shadow-[8px_8px_0px_0px_rgba(251,251,249,0.1)] prose prose-slate dark:prose-invert max-w-none
+      <article className="p-8 md:p-12 border-4 border-text bg-surface shadow-large prose prose-slate dark:prose-invert max-w-none
         prose-h2:border-b-4 prose-h2:border-text prose-h2:pb-2 prose-h2:font-black prose-h2:uppercase
         prose-a:text-secondary prose-a:font-black prose-a:no-underline hover:prose-a:underline
-        prose-pre:border-2 prose-pre:border-text prose-pre:rounded-none prose-pre:shadow-[4px_4px_0px_0px_rgba(28,41,60,1)]
+        prose-pre:border-2 prose-pre:border-text prose-pre:shadow-mini
       ">
         <PostContent />
       </article>
@@ -77,7 +77,7 @@ export default async function SnippetDetailPage({ params }: Props) {
       <footer className="mt-16 flex justify-center">
         <Link 
           href="/contact" 
-          className="px-8 py-4 bg-primary text-text border-4 border-text shadow-[6px_6px_0px_0px_rgba(28,41,60,1)] font-black text-xl uppercase hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_0px_rgba(28,41,60,1)] transition-all"
+          className="px-8 py-4 bg-primary text-text border-4 border-text shadow-mini font-black text-xl uppercase hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-hover transition-all"
         >
           Discuss this Snippet →
         </Link>

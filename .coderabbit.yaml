@@ -33,7 +33,7 @@ reviews:
     - path: 'src/components/ui/**/*.{ts,tsx}'
       instructions: |
         汎用的なUIコンポーネントです。
-        - Neobrutalism スタイルの整合性（border-2〜4, shadow-[4px_4px_0px_0px_...] 等）を確認してください。
+        - Neobrutalism スタイルの整合性（border-2〜4, shadow-large〜[4px_4px_0px_0px_...] 等）を確認してください。
         - 再利用性が高く、特定のドメイン知識が混入していないか。
 chat:
   auto_reply: true

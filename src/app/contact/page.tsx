@@ -12,7 +12,7 @@ export default function ContactPage() {
           <span className="text-xl group-hover:-translate-x-1 transition-transform">←</span> Back to Home
         </Link>
         
-        <div className="mt-8 p-8 bg-primary border-4 border-text shadow-[8px_8px_0px_0px_rgba(28,41,60,1)] dark:shadow-[8px_8px_0px_0px_rgba(251,251,249,0.2)]">
+        <div className="mt-8 p-8 bg-primary border-4 border-text shadow-large">
           <h1 className="text-5xl font-black tracking-tight text-text uppercase">Contact</h1>
           <p className="text-text font-bold mt-4 text-lg">
             デザインの相談、開発の依頼など、<br />
@@ -21,7 +21,7 @@ export default function ContactPage() {
         </div>
       </div>
 
-      <div className="p-8 border-4 border-text bg-surface dark:bg-slate-900 shadow-[8px_8px_0px_0px_rgba(28,41,60,1)] dark:shadow-[8px_8px_0px_0px_rgba(251,251,249,0.1)]">
+      <div className="p-8 border-4 border-text bg-surface shadow-large">
         <ContactForm />
       </div>
     </div>
