@@ -66,7 +66,7 @@ This skill guides the implementation of the Neobrutalism design system: a modern
 ### Anatomy and Variants
 - **Borders**: Must use thick, solid borders (2px or 4px) using `color.border.default`.
 - **Spacing**: Must use tokens from the defined spacing scale.
-- **Shadows**: Should use `shadow.1` or `shadow.2` for depth.
+- **Shadows**: Should use `shadow.large` or `shadow.normal` or `shadow.mini` for depth.
 
 ### States and Interaction
 Every component must define and handle the following states:

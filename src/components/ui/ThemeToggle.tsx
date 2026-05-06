@@ -18,6 +18,7 @@ export function ThemeToggle() {
 
   return (
     <button
+      type="button"
       onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
       className="p-2 bg-primary border-2 border-border-default shadow-mini hover:translate-x-[1px] hover:translate-y-[1px] hover:shadow-hover active:translate-x-[3px] active:translate-y-[3px] active:shadow-none focus-visible:outline-4 focus-visible:outline-secondary outline-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
       aria-label="テーマの切り替え"

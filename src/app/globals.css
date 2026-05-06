@@ -56,7 +56,7 @@
 @theme inline {
   /* --- Base --- */
   --font-sans: var(--font-noto-sans-jp), ui-sans-serif, system-ui;
-  --font-mono: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, 'SFMono-Regular';
 
   /* Colors */
   --color-background: var(--color-background);

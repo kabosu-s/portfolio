@@ -52,7 +52,12 @@ export const Button = (props: ButtonProps) => {
   if (href) {
     if (disabled) {
       return (
-        <span className={combinedClassName} aria-disabled="true">
+        <span
+          className={`${combinedClassName} opacity-50 cursor-not-allowed pointer-events-none`}
+          aria-disabled="true"
+          role="link"
+          tabIndex={-1}
+        >
           {children}
         </span>
       );
