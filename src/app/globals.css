@@ -1,32 +1,92 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 @plugin "@tailwindcss/typography";
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-noto-sans-jp), ui-sans-serif, system-ui;
-  --font-mono: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular;
-
-  /* Color Palette - Neobrutalism */
-  --color-primary: #FDC800;
-  --color-secondary: #432DD7;
-  
-  --color-surface: #FBFBF9;
+:root {
+  /* Light Mode (Default) */
+  --color-background: #efe9d9;
+  --color-foreground: #0f0d10;
+  --color-surface: #fbfbf9;
   --color-surface-muted: #ffffff;
   --color-surface-strong: #f5f5f0;
-  --color-surface-raised: #ffdb33;
+  --color-surface-raised: #fdc800;
 
-  --color-text: #1C293C;
+  --color-text: #1c293c;
   --color-text-secondary: #5a5a5a;
   --color-text-inverse: oklab(0 0 0 / 0.8);
-  
+
   --color-border-default: #000000;
+  --shadow-color: #000000;
 
-  --color-success: #16A34A;
-  --color-warning: #D97706;
-  --color-danger: #DC2626;
+  --color-primary: #ffdb33; /* Yellow */
+  --color-secondary: #432dd7; /* Purple */
+  --color-accent: #0091ae;
 
-  /* Spacing Scale */
+  /* Feedback */
+  --color-success: #16a34a;
+  --color-warning: #d97706;
+  --color-danger: #dc2626;
+}
+
+.dark {
+  /* Dark Mode (Noctis Azureus inspired) */
+  --color-background: #051b29;
+  --color-foreground: #becfda;
+  --color-surface: #051b29;
+  --color-surface-muted: #0d2a3d;
+  --color-surface-strong: #163346;
+  --color-surface-raised: #49ace9;
+
+  --color-text: #becfda;
+  --color-text-secondary: #7b96a9;
+  --color-text-inverse: oklab(0 0 0 / 0.8);
+
+  --color-border-default: #1e3a4e;
+  --shadow-color: #020d14;
+
+  --color-primary: #0091ae;
+  --color-secondary: #8275e9;
+  --color-accent: #ffdb33;
+
+  /* Feedback */
+  --color-success: #49e9a6;
+  --color-warning: #e4b781;
+  --color-danger: #e66533;
+}
+
+@theme inline {
+  /* --- Base --- */
+  --font-sans: var(--font-noto-sans-jp), ui-sans-serif, system-ui;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, 'SFMono-Regular';
+
+  /* Colors */
+  --color-background: var(--color-background);
+  --color-foreground: var(--color-foreground);
+  --color-surface: var(--color-surface);
+  --color-surface-muted: var(--color-surface-muted);
+  --color-surface-strong: var(--color-surface-strong);
+  --color-surface-raised: var(--color-surface-raised);
+
+  --color-text: var(--color-text);
+  --color-text-secondary: var(--color-text-secondary);
+  --color-text-inverse: var(--color-text-inverse);
+
+  --color-border-default: var(--color-border-default);
+
+  --color-primary: var(--color-primary);
+  --color-secondary: var(--color-secondary);
+  --color-accent: var(--color-accent);
+
+  --color-success: var(--color-success);
+  --color-warning: var(--color-warning);
+  --color-danger:  var(--color-danger);
+
+  /* --- Shadows --- */
+  --shadow-large: 4px 4px 0px 0px var(--shadow-color);
+  --shadow-normal: 3px 3px 0px 0px var(--shadow-color);
+  --shadow-mini: 2px 2px 0px 0px var(--shadow-color);
+  --shadow-hover: 1px 1px 0px 0px var(--shadow-color);
+
+  /* --- Spacing --- */
   --spacing-1: 8px;
   --spacing-2: 12px;
   --spacing-3: 16px;
@@ -37,19 +97,14 @@
   --spacing-8: 64px;
 
   /* Typography Scale */
-  --text-xs: 14px;
-  --text-sm: 16px;
-  --text-md: 20px;
-  --text-lg: 24px;
-  --text-xl: 30px;
-  --text-2xl: 36px;
-  --text-3xl: 72px;
-  --text-4xl: 88px;
-
-  /* Shadows */
-  --shadow-neobrutalism-1: 4px 4px 0px 0px #000000;
-  --shadow-neobrutalism-2: 3px 3px 0px 0px #000000;
-  --shadow-neobrutalism-hover: 2px 2px 0px 0px #000000;
+  --text-xs: 0.875rem;
+  --text-sm: 1rem;
+  --text-md: 1.25rem;
+  --text-lg: 1.5rem;
+  --text-xl: 1.875rem;
+  --text-2xl: 2.25rem;
+  --text-3xl: 4.5rem;
+  --text-4xl: 5.5rem;
 
   /* Motion */
   --animate-instant: 100ms;
@@ -60,11 +115,13 @@
   --border-width-thin: 2px;
 }
 
+/* --- Dark Mode Overrides --- */
+
 /* Tailwind v4 でクラスベースのダークモードを有効にする */
 @variant dark (&:where(.dark, .dark *));
 
 body {
-  @apply antialiased bg-background text-foreground transition-colors duration-300;
+  @apply antialiased bg-background text-text transition-colors duration-300 ease-in-out;
 }
 
 /* proseクラスの微調整: 日本語フォントに合わせる */

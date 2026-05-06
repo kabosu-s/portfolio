@@ -16,7 +16,7 @@ export default function Error({
 
   return (
     <div className="max-w-4xl mx-auto py-12">
-      <div className="p-8 bg-danger border-4 border-text shadow-[8px_8px_0px_0px_rgba(28,41,60,1)] dark:shadow-[8px_8px_0px_0px_rgba(251,251,249,0.2)]">
+      <div className="p-8 bg-danger border-4 border-text shadow-large">
         <h1 className="text-4xl md:text-5xl font-black text-surface uppercase leading-tight mb-4">
           Something went wrong!
         </h1>
@@ -29,13 +29,13 @@ export default function Error({
         <div className="flex flex-wrap gap-4">
           <button
             onClick={() => reset()}
-            className="px-8 py-4 bg-surface text-text border-4 border-text shadow-[6px_6px_0px_0px_rgba(28,41,60,1)] font-black text-xl uppercase hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_0px_rgba(28,41,60,1)] transition-all"
+            className="px-8 py-4 bg-surface text-text border-4 border-text shadow-mini font-black text-xl uppercase hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-hover transition-all"
           >
             Try again
           </button>
           <Link
             href="/snippets"
-            className="px-8 py-4 bg-primary text-text border-4 border-text shadow-[6px_6px_0px_0px_rgba(28,41,60,1)] font-black text-xl uppercase hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-[4px_4px_0px_0px_rgba(28,41,60,1)] transition-all"
+            className="px-8 py-4 bg-primary text-text border-4 border-text shadow-mini font-black text-xl uppercase hover:translate-x-[2px] hover:translate-y-[2px] hover:shadow-hover transition-all"
           >
             Go back to list
           </Link>
